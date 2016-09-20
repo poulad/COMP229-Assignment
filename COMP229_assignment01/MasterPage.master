@@ -5,16 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
    <title></title>
+   <link href="Content/styles/bootstrap.min.css" rel="stylesheet" />
+   <link href="Content/styles/site.css" rel="stylesheet" />
    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
    </asp:ContentPlaceHolder>
 </head>
 <body>
-   <form id="form1" runat="server">
-      <div>
-         Welcome
-         <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
-         </asp:ContentPlaceHolder>
-      </div>
-   </form>
+   <header>
+      <ul class="nav nav-tabs">
+         <li class="active">
+           <a href="#">Home</a>
+         </li>
+         <li><a href="#">...</a></li>
+         <li><a href="#">...</a></li>
+      </ul>
+   </header>
+
+   <div>
+      Welcome
+         <form id="form1" runat="server">
+            <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+         </form>
+   </div>
+
+   <footer>
+      
+   </footer>
 </body>
 </html>

@@ -1,2 +1,3 @@
-﻿<%@ Page Title="Title" Language="C#" MasterPageFile="MasterPage.master" %>
+﻿<%@ Page Title="Title" Language="C#"  %>
 
+Welcome to ASP.NET app
