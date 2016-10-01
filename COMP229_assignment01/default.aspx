@@ -12,7 +12,7 @@
 
       <div class="carousel-inner">
          <div class="item active">
-            <img class="img-responsive" src="Content/images/carousel-0.jpg" />
+            <img class="img-responsive" src="Content/images/carousel-0.jpg" alt="Pizza" />
             <div class="carousel-caption">
                <h4>A delisous pizza</h4>
             </div>
@@ -21,8 +21,8 @@
          <div class="item">
             <img class="img-responsive" src="Content/images/carousel-1.jpg" />
             <div class="carousel-caption">
-               <h3>Jause</h3>
-               <p class="h4">A new recepie for this</p>
+               <h3>Snacks</h3>
+               <p class="h4">A new recipe for this</p>
             </div>
          </div>
 
@@ -53,12 +53,12 @@
 
    <div class="container">
       <div class="row">
-         <span class="h3">Discover modern recepies here</span>
+         <span class="h3">Discover modern RECIPES here</span>
       </div>
 
       <div class="row">
          <div class="col-xs-6 col-sm-4">
-            <img class="img-responsive" src="Content/images/recepies.svg" />
+            <img class="img-responsive" src="Content/images/recipes.svg" />
             <p>View all the <span class="text-uppercase">Recepeis</span> available on the website</p>
          </div>
          <div class="col-xs-6 col-sm-4">
