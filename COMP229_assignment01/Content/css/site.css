@@ -1,0 +1,19 @@
+body {
+   color: #111;
+   text-decoration-color: #111;
+}
+
+.header {
+   /*color: #68a268;*/
+   text-align: center;
+   padding: 1em;
+   min-height: 150px;
+   background-color: azure;
+}
+
+footer {
+   color: white;
+   background-color: teal;
+   min-height: 200px;
+   padding: 1em .5em;
+}

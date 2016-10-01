@@ -5,32 +5,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
    <title></title>
-   <link href="Content/styles/bootstrap.min.css" rel="stylesheet" />
-   <link href="Content/styles/site.css" rel="stylesheet" />
+   <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="Content/css/site.css" rel="stylesheet" />
+   <script type="text/javascript" src="Content/js/jquery.min.js"></script>
+   <script type="text/javascript" src="Content/js/bootstrap.min.js"></script>
    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
    </asp:ContentPlaceHolder>
 </head>
-<body>
-   <header>
-      <ul class="nav nav-tabs">
-         <li class="active">
-           <a href="#">Home</a>
-         </li>
-         <li><a href="#">...</a></li>
-         <li><a href="#">...</a></li>
-      </ul>
-   </header>
 
-   <div>
-      Welcome
-         <form id="form1" runat="server">
-            <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
-            </asp:ContentPlaceHolder>
-         </form>
-   </div>
+<body style="color: #333;">
+   <ul class="container nav nav-pills">
+      <li>
+         <a href="Default.aspx">
+            <span class="glyphicon glyphicon-home"></span>Home
+         </a>
+      </li>
+      <li>
+         <a href="Recipes.aspx">
+            <span class="glyphicon glyphicon-list"></span>Recepies
+         </a>
+      </li>
+      <li>
+         <a href="Add.aspx">
+            <span class="glyphicon glyphicon-plus-sign"></span>Add
+         </a>
+      </li>
+      <li><a href="Search.aspx"><span class="glyphicon glyphicon-search"></span>Search</a></li>
+   </ul>
 
-   <footer>
-      
+   <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
+   </asp:ContentPlaceHolder>
+
+   <footer class="container-fluid">
+      <div class="container">
+         <p class="h4">
+            <span class="glyphicon glyphicon-copyright-mark"></span> Copyright 2016. Poulad Ashraf Pour. Student ID: 300858337
+            
+            
+         </p>
+
+      </div>
    </footer>
 </body>
 </html>
