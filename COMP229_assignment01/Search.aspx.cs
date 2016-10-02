@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,6 @@ namespace COMP229_assignment01
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-
          if (Request.QueryString["s"] != null)
          {
             searchTerm.Text = (string)Request.QueryString["s"];

@@ -8,7 +8,8 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
-   <div id="carousel" class="carousel slide hidden-xs" data-ride="carousel">
+
+   <div id="carousel" class="carousel slide hidden-xs hidden-sm" data-ride="carousel">
       <ol class="carousel-indicators">
          <li class="active" data-target="#carousel" data-slide-to="0"></li>
          <li data-target="#carousel" data-slide-to="1"></li>
@@ -45,12 +46,26 @@
       <a class="right carousel-control" href="#carousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
    </div>
 
+
    <div class="container">
-      <div class="row">
-         <span class="h3">Discover modern RECIPES here</span>
+
+      <div class="jumbotron">
+         <h2 class="text-center">Welcome to
+            <img src="Content/images/logo.svg" alt="Recipe land logo" /></h2>
+         <p>
+            We all love<span class="glyphicon glyphicon-heart" style="color: red;"></span> the food we eat so why not share it with others? In Recipe Land people tell eachother secret ways of cooking delicious food. 
+         </p>
+         <h3>What's here for you <span class="glyphicon glyphicon-question-sign"></span></h3>
+         <p>
+            <a href="Search.aspx">Search <span class="glyphicon glyphicon-search" style="color: #444;"></span> for recipes</a> to learn how to get yourself delicious meals.
+            <br />
+            New tastes always make me happy. <a href="Add.aspx">Add <span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span> your own recipe</a> to the list. 
+            <br />
+            Take yoru time to go through the <a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span> list of all recipes</a>.
+         </p>
       </div>
 
-      <div class="row">
+<%--      <div class="row">
          <div class="col-xs-6 col-sm-4">
             <img class="img-responsive" src="Content/images/recipes.svg" />
             <p>View all the <span class="text-uppercase">Recepeis</span> available on the website</p>
@@ -63,6 +78,7 @@
             <img class="img-responsive" src="Content/images/search.svg" />
             <p>View all the <span class="text-uppercase">Recepeis</span> available on the website</p>
          </div>
-      </div>
+      </div>--%>
    </div>
+
 </asp:Content>

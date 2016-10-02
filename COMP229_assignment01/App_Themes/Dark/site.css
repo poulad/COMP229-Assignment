@@ -1,5 +1,12 @@
-﻿body {
-   background-color: #555;
-   color: azure;
+﻿footer {
+   color: white;
+   background-color: #088;
 }
 
+   footer a, footer a:visited {
+      color: #AFA;
+   }
+
+      footer a:hover {
+         color: #ACF;
+      }

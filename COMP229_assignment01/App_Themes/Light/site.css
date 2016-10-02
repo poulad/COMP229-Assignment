@@ -1,3 +1,12 @@
-﻿body {
-   color: green;
+footer {
+   color: white;
+   background-color: #088;
+}
+
+footer a, footer a:visited {
+   color: #AFA;
+}
+
+footer a:hover {
+   color: #ACF;
 }
