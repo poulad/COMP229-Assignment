@@ -12,6 +12,11 @@ namespace COMP229_assignment01
       protected void Page_Load(object sender, EventArgs e)
       {
 
+         if (Request.QueryString["s"] != null)
+         {
+            searchTerm.Text = (string)Request.QueryString["s"];
+         }
+
       }
    }
 }

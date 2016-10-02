@@ -1,16 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="COMP229_assignment01.Search" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="COMP229_assignment01.Search" MasterPageFile="MasterPage.master" %>
 
-<!DOCTYPE html>
+<asp:Content ContentPlaceHolderID="headPlaceHolder" runat="server">
+   <script type="text/javascript">
+      $(function () {
+         $("#navigationBar").children()[3].classList.add("active");
+      });   </script>
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
+   <div class="container">
+      <h3>Search Term:</h3>
+      <h4><asp:Label ID="searchTerm" runat="server"></asp:Label></h4>
+      <div class="alert-warning">
+         <p>This functionality is not implemented yet. Please come back later.</p>
+      </div>
+   </div>
+</asp:Content>

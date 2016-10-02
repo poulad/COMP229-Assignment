@@ -78,6 +78,8 @@
     <Content Include="Content\images\carousel-2.jpg" />
     <Content Include="Content\images\carousel-3.jpg" />
     <Content Include="Content\images\carousel-4.jpg" />
+    <Content Include="Content\images\chef.svg" />
+    <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\recipes.svg" />
     <Content Include="Content\images\search.svg" />
     <Content Include="Content\index.html" />

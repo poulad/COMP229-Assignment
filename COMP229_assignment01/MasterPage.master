@@ -4,34 +4,50 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title></title>
+   <title>Recipe Land</title>
    <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
    <link href="Content/css/site.css" rel="stylesheet" />
    <script type="text/javascript" src="Content/js/jquery.min.js"></script>
    <script type="text/javascript" src="Content/js/bootstrap.min.js"></script>
+   <link href="Content/images/chef.svg" rel="shortcut icon" type="image/x-icon" />
    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
    </asp:ContentPlaceHolder>
 </head>
 
 <body style="color: #333;">
-   <ul class="container nav nav-pills">
-      <li>
-         <a href="Default.aspx">
-            <span class="glyphicon glyphicon-home"></span>Home
-         </a>
-      </li>
-      <li>
-         <a href="Recipes.aspx">
-            <span class="glyphicon glyphicon-list"></span>Recipes
-         </a>
-      </li>
-      <li>
-         <a href="Add.aspx">
-            <span class="glyphicon glyphicon-plus-sign"></span>Add
-         </a>
-      </li>
-      <li><a href="Search.aspx"><span class="glyphicon glyphicon-search"></span>Search</a></li>
-   </ul>
+
+   <nav class="container-fluid navbar-default">
+      <div class="container">
+         <div class="navbar-header">
+            <img class="img-responsive nav-brand" src="Content/images/logo.svg" />
+         </div>
+         <ul id="navigationBar" class="nav navbar-nav">
+            <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+            <li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list"></span>Recipes</a></li>
+            <li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign"></span>Add</a></li>
+            <li><a href="Search.aspx"><span class="glyphicon glyphicon-search"></span>Search</a></li>
+         </ul>
+
+         <form class="navbar-nav navbar-form navbar-right" action="Search.aspx" method="get">
+            <div class="form-group">
+               <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                  <input name="s" class="form-control" type="text" placeholder="Quick search" />
+                  <span class="input-group-btn">
+                     <button class="btn btn-default">Go</button></span>
+               </div>
+            </div>
+         </form>
+      </div>
+   </nav>
+   
+   <noscript>
+      <div class="container">
+         <p class="alert-danger h4">
+            For the best user experience, this website needs JavaScript enabled in the browser.
+         </p>
+      </div>
+   </noscript>
 
    <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
    </asp:ContentPlaceHolder>
@@ -39,7 +55,7 @@
    <footer class="container-fluid">
       <div class="container">
          <p class="h4">
-            <span class="glyphicon glyphicon-copyright-mark"></span> Copyright 2016. Poulad Ashraf Pour. Student ID: 300858337
+            <span class="glyphicon glyphicon-copyright-mark"></span>Copyright 2016. Poulad Ashraf Pour. Student ID: 300858337
             
             
          </p>

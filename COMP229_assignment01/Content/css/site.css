@@ -17,3 +17,16 @@ footer {
    min-height: 200px;
    padding: 1em .5em;
 }
+
+navbar-brand a {
+   background-image: url(../images/logo.svg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center center;
+   height: 100%;
+   width: 130px;
+}
+
+.nav-brand {
+   height: 40px;
+}

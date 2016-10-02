@@ -1,5 +1,12 @@
 ﻿<%@ Page Inherits="COMP229_assignment01.Default" Language="C#" AutoEventWireup="true" MasterPageFile="MasterPage.master" CodeBehind="Default.aspx.cs" %>
 
+<asp:Content ContentPlaceHolderID="headPlaceHolder" runat="server">
+   <script type="text/javascript">
+      $(function () {
+         $("#navigationBar").children()[0].classList.add("active");
+      });   </script>
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
    <div id="carousel" class="carousel slide hidden-xs" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -14,37 +21,24 @@
          <div class="item active">
             <img class="img-responsive" src="Content/images/carousel-0.jpg" alt="Pizza" />
             <div class="carousel-caption">
-               <h4>A delisous pizza</h4>
+               <h2>A delicious pizza</h2>
             </div>
          </div>
 
          <div class="item">
             <img class="img-responsive" src="Content/images/carousel-1.jpg" />
-            <div class="carousel-caption">
-               <h3>Snacks</h3>
-               <p class="h4">A new recipe for this</p>
-            </div>
          </div>
 
          <div class="item">
             <img class="img-responsive" src="Content/images/carousel-2.jpg" />
-            <div class="carousel-caption">
-               <h4>A delisous pizza</h4>
-            </div>
          </div>
 
          <div class="item">
             <img class="img-responsive" src="Content/images/carousel-3.jpg" />
-            <div class="carousel-caption">
-               <h4>Steak is always my best choice</h4>
-            </div>
          </div>
 
          <div class="item">
             <img class="img-responsive" src="Content/images/carousel-4.jpg" />
-            <div class="carousel-caption">
-               <h4>Pancakes</h4>
-            </div>
          </div>
       </div>
       <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
