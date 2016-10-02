@@ -57,15 +57,15 @@
          </p>
          <h3>What's here for you <span class="glyphicon glyphicon-question-sign"></span></h3>
          <p>
-            <a href="Search.aspx">Search <span class="glyphicon glyphicon-search" style="color: #444;"></span> for recipes</a> to learn how to get yourself delicious meals.
+            <a href="Search.aspx">Search <span class="glyphicon glyphicon-search" style="color: #444;"></span>for recipes</a> to learn how to get yourself delicious meals.
             <br />
-            New tastes always make me happy. <a href="Add.aspx">Add <span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span> your own recipe</a> to the list. 
+            New tastes always make me happy. <a href="Add.aspx">Add <span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>your own recipe</a> to the list. 
             <br />
-            Take yoru time to go through the <a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span> list of all recipes</a>.
+            Take yoru time to go through the <a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>list of all recipes</a>.
          </p>
       </div>
 
-<%--      <div class="row">
+      <%--      <div class="row">
          <div class="col-xs-6 col-sm-4">
             <img class="img-responsive" src="Content/images/recipes.svg" />
             <p>View all the <span class="text-uppercase">Recepeis</span> available on the website</p>
