@@ -3,92 +3,108 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <script runat="server">
 
-   protected void lightThemeButton_Click(object sender, EventArgs e)
-   {
-      Session["theme"] = "Light";
-      // reload the page afterward. Theme changes on Page_PreInit event
-      Response.Redirect(Request.RawUrl);
-   }
+	protected void lightThemeButton_Click(object sender, EventArgs e)
+	{
+		Session["theme"] = "Light";
+		// reload the page afterward. Theme changes on Page_PreInit event
+		Response.Redirect(Request.RawUrl);
+	}
 
-   protected void darkThemeButton_Click(object sender, EventArgs e)
-   {
-      Session["theme"] = "Dark";
-      // reload the page afterward. Theme changes on Page_PreInit event
-      Response.Redirect(Request.RawUrl);
-   }
+	protected void darkThemeButton_Click(object sender, EventArgs e)
+	{
+		Session["theme"] = "Dark";
+		// reload the page afterward. Theme changes on Page_PreInit event
+		Response.Redirect(Request.RawUrl);
+	}
+
+	protected void Page_Load(object sender, EventArgs e)
+	{
+		int counter = 0;
+		if (Application["visits"] != null)
+		{
+			counter = (int)Application["visits"];
+		}
+		counter++;
+		visitCount.Text = counter + "";
+		Application["visits"] = counter;
+	}
 
 </script>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>Recipe Land</title>
-   <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
-   <link href="Content/css/site-common.css" rel="stylesheet" />
-   <script type="text/javascript" src="Content/js/jquery.min.js"></script>
-   <script type="text/javascript" src="Content/js/bootstrap.min.js"></script>
-   <link href="Content/images/chef.svg" rel="shortcut icon" type="image/x-icon" />
+	<title>Recipe Land</title>
+	<link href="Content/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="Content/css/site-common.css" rel="stylesheet" />
+	<script type="text/javascript" src="Content/js/jquery.min.js"></script>
+	<script type="text/javascript" src="Content/js/bootstrap.min.js"></script>
+	<link href="Content/images/chef.svg" rel="shortcut icon" type="image/x-icon" />
 
-   <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
-   </asp:ContentPlaceHolder>
+	<asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+	</asp:ContentPlaceHolder>
 </head>
 
 <body>
+	<form runat="server">
+		<nav class="container-fluid navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<img class="img-responsive nav-brand" src="Content/images/logo.svg" />
+				</div>
+				<ul id="navigationBar" class="nav navbar-nav">
+					<li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+					<li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>Recipes</a></li>
+					<li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>Add</a></li>
+					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>Search</a></li>
+				</ul>
 
-   <nav class="container-fluid navbar-default">
-      <div class="container">
-         <div class="navbar-header">
-            <img class="img-responsive nav-brand" src="Content/images/logo.svg" />
-         </div>
-         <ul id="navigationBar" class="nav navbar-nav">
-            <li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-            <li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span> Recipes</a></li>
-            <li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span> Add</a></li>
-            <li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span> Search</a></li>
-         </ul>
+				<div class="navbar-nav navbar-form navbar-right">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+							<input name="s" class="form-control" type="text" placeholder="Find a recipe" />
+							<span class="input-group-btn">
+								<asp:Button runat="server" class="btn btn-default" Text="Go"/>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
 
-         <form class="navbar-nav navbar-form navbar-right" action="Search.aspx" method="get">
-            <div class="form-group">
-               <div class="input-group">
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                  <input name="s" class="form-control" type="text" placeholder="Find a recipe" />
-                  <span class="input-group-btn">
-                     <button class="btn btn-default">Go</button></span>
-               </div>
-            </div>
-         </form>
-      </div>
-   </nav>
+		<noscript>
+			<div class="container">
+				<p class="alert-danger h4">
+					For the best user experience, this website needs JavaScript enabled in the browser.
+				</p>
+			</div>
+		</noscript>
 
-   <noscript>
-      <div class="container">
-         <p class="alert-danger h4">
-            For the best user experience, this website needs JavaScript enabled in the browser.
-         </p>
-      </div>
-   </noscript>
+		<asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
+		</asp:ContentPlaceHolder>
 
-   <asp:ContentPlaceHolder ID="contentPlaceHolder" runat="server">
-   </asp:ContentPlaceHolder>
+		<footer class="container-fluid">
+			<div class="container">
+				<p class="col-md-8 h4">
+					<span class="glyphicon glyphicon-copyright-mark"></span>Copyright 2016. Poulad Ashraf Pour. This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" title="Learn more about Creative Commons license" target="_blank">CC&nbsp;4.0&nbsp;BY</a> license.
+				</p>
+				<p class="col-md-8 h4" style="color: azure;">
+					<span class="glyphicon glyphicon-user"></span>
+					<asp:Label runat="server" ID="visitCount" ForeColor="#f2f2f2" />
+					visits
+				</p>
+				<div class="col-md-2 pull-right">
+					<h4>Select a theme:</h4>
+					<div class="form-group btn-group">
+						<asp:Button class="btn btn-default" runat="server" Text="Light" OnClick="lightThemeButton_Click" />
+						<asp:Button class="btn btn-default" BackColor="gray" ForeColor="azure" runat="server" Text="Dark" OnClick="darkThemeButton_Click" />
+					</div>
+				</div>
 
-   <footer class="container-fluid">
-      <div class="container">
-         <p class="col-md-8 h4">
-            <span class="glyphicon glyphicon-copyright-mark"></span> Copyright 2016. Poulad Ashraf Pour. This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" title="Learn more about Creative Commons license" target="_blank">CC&nbsp;4.0&nbsp;BY</a> license.
-         </p>
-
-         <div class="col-md-2 pull-right">
-            <h4>Select a theme:</h4>
-            <form id="themeForm" runat="server">
-               <div class="form-group btn-group">
-                  <asp:Button class="btn btn-default" runat="server" Text="Light" OnClick="lightThemeButton_Click" />
-                  <asp:Button class="btn btn-default" BackColor="gray" ForeColor="azure" runat="server" Text="Dark" OnClick="darkThemeButton_Click" />
-               </div>
-            </form>
-         </div>
-
-      </div>
-   </footer>
+			</div>
+		</footer>
+	</form>
 
 </body>
 </html>

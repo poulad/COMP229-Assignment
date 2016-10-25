@@ -71,6 +71,7 @@
     <Content Include="Add.aspx" />
     <Content Include="App_Themes\Dark\bootstrap.dark.min.css" />
     <Content Include="App_Themes\Dark\site.css" />
+    <Content Include="App_Themes\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="App_Themes\Light\bootstrap.light.min.css" />
     <Content Include="Content\css\site-common.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -88,6 +89,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="App_Themes\Light\site.css" />
     <Content Include="Content\js\jquery.min.js" />
+    <Content Include="FormInput.ascx" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.master" />
@@ -95,6 +97,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App_Themes\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Themes\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App_Themes\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App_Themes\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\CentennialCollege.pubxml" />
     <None Include="Properties\PublishProfiles\COMP229 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -134,6 +140,13 @@
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormInput.ascx.cs">
+      <DependentUpon>FormInput.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormInput.ascx.designer.cs">
+      <DependentUpon>FormInput.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
