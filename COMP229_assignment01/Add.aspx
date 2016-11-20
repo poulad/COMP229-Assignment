@@ -55,8 +55,11 @@
 
 		<div class="row">
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is required" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is too long" ValidationExpression="^\w{1,20}$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is required" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is too long" ValidationExpression="^\w{1,50}$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category is required" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category name is too long" ValidationExpression="^\w{1,20}$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxDescription" ErrorMessage="Description is required" Display="None" />
 			<asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 		</div>
