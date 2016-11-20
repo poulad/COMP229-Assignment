@@ -16,10 +16,12 @@ namespace COMP229_assignment01
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CuisineId { get; set; }
+        public string Author { get; set; }
         public int CategoryId { get; set; }
-        public string Descriptions { get; set; }
+        public Nullable<System.TimeSpan> CookingTime { get; set; }
+        public int CuisineId { get; set; }
         public Nullable<bool> IsPrivate { get; set; }
+        public string Description { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Cuisine Cuisine { get; set; }

@@ -25,12 +25,14 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="CuisineId" Type="int" Nullable="false" />
+          <Property Name="Author" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="Descriptions" Type="ntext" />
+          <Property Name="CookingTime" Type="time" Precision="7" />
+          <Property Name="CuisineId" Type="int" Nullable="false" />
           <Property Name="IsPrivate" Type="bit" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__5165187F">
+        <Association Name="FK__Recipes__Categor__6383C8BA">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -42,7 +44,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__5070F446">
+        <Association Name="FK__Recipes__Cuisine__6477ECF3">
           <End Role="Cuisines" Type="Self.Cuisines" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -58,11 +60,11 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cuisines" EntityType="Self.Cuisines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Recipes__Categor__5165187F" Association="Self.FK__Recipes__Categor__5165187F">
+          <AssociationSet Name="FK__Recipes__Categor__6383C8BA" Association="Self.FK__Recipes__Categor__6383C8BA">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__5070F446" Association="Self.FK__Recipes__Cuisine__5070F446">
+          <AssociationSet Name="FK__Recipes__Cuisine__6477ECF3" Association="Self.FK__Recipes__Cuisine__6477ECF3">
             <End Role="Cuisines" EntitySet="Cuisines" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
@@ -75,11 +77,11 @@
           <EntitySet Name="Categories" EntityType="RecipeLandModel.Category" />
           <EntitySet Name="Cuisines" EntityType="RecipeLandModel.Cuisine" />
           <EntitySet Name="Recipes" EntityType="RecipeLandModel.Recipe" />
-          <AssociationSet Name="FK__Recipes__Categor__5165187F" Association="RecipeLandModel.FK__Recipes__Categor__5165187F">
+          <AssociationSet Name="FK__Recipes__Categor__6383C8BA" Association="RecipeLandModel.FK__Recipes__Categor__6383C8BA">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__5070F446" Association="RecipeLandModel.FK__Recipes__Cuisine__5070F446">
+          <AssociationSet Name="FK__Recipes__Cuisine__6477ECF3" Association="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3">
             <End Role="Cuisine" EntitySet="Cuisines" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
@@ -90,7 +92,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__5165187F" FromRole="Category" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__6383C8BA" FromRole="Category" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Cuisine">
           <Key>
@@ -98,7 +100,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__5070F446" FromRole="Cuisine" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3" FromRole="Cuisine" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
@@ -106,14 +108,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="CuisineId" Type="Int32" Nullable="false" />
+          <Property Name="Author" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CookingTime" Type="Time" Precision="7" />
+          <Property Name="CuisineId" Type="Int32" Nullable="false" />
           <Property Name="IsPrivate" Type="Boolean" />
-          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__5165187F" FromRole="Recipe" ToRole="Category" />
-          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__5070F446" FromRole="Recipe" ToRole="Cuisine" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__6383C8BA" FromRole="Recipe" ToRole="Category" />
+          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3" FromRole="Recipe" ToRole="Cuisine" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__5165187F">
+        <Association Name="FK__Recipes__Categor__6383C8BA">
           <End Type="RecipeLandModel.Category" Role="Category" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,7 +129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__5070F446">
+        <Association Name="FK__Recipes__Cuisine__6477ECF3">
           <End Type="RecipeLandModel.Cuisine" Role="Cuisine" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -137,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -162,10 +166,12 @@
           <EntitySetMapping Name="Recipes">
             <EntityTypeMapping TypeName="RecipeLandModel.Recipe">
               <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
-                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CuisineId" ColumnName="CuisineId" />
+                <ScalarProperty Name="CookingTime" ColumnName="CookingTime" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

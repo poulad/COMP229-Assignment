@@ -53,9 +53,11 @@ CREATE TABLE [dbo].[Recipes]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
 	[Name] NCHAR(20) NOT NULL,
-	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
+	[Author] NCHAR(50) NOT NULL,
 	[CategoryId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Categories](Id),
-	[Descriptions] NTEXT NULL,
-	[IsPrivate] BIT NULL
+	[CookingTime] TIME,
+	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
+	[IsPrivate] BIT NULL DEFAULT 0,
+	[Description] NTEXT NOT NULL
 );
 

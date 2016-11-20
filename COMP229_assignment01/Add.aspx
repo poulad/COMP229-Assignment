@@ -20,11 +20,13 @@
 					</dd>
 					<dt class="h4">Cooking time</dt>
 					<dd>
-						<asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" />
+						<asp:TextBox runat="server" ID="TextBoxCookingTime" CssClass="form-control" />
 					</dd>
-					<dt class="h4">Cuisine</dt>
+					<dt class="h4 input-required">Cuisine</dt>
 					<dd>
-						<asp:DropDownList runat="server" CssClass="dropdown form-control" />
+						<asp:DropDownList runat="server" CssClass="dropdown form-control" DataSourceID="LinqDS" DataTextField="Name" DataValueField="Id" />
+						<asp:LinqDataSource runat="server" ID="LinqDS" ContextTypeName="COMP229_assignment01.RecipeLandEntities" EntityTypeName="" Select="new (Id, Name)" TableName="Cuisines">
+						</asp:LinqDataSource>
 					</dd>
 					<dt></dt>
 					<dd>
@@ -32,11 +34,11 @@
 					</dd>
 					<dt class="h4 input-required">Description</dt>
 					<dd>
-						<asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+						<asp:TextBox runat="server" ID="TextBoxDescription" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
 					</dd>
 					<dt></dt>
 					<dd>
-						<asp:Button runat="server" Text="Submit" CssClass="btn btn-primary pull-right" /></dd>
+						<asp:Button runat="server" ID="ButtonSubmit" Text="Submit" CssClass="btn btn-primary pull-right" OnClick="ButtonSubmit_OnClick" /></dd>
 				</dl>
 			</div>
 		</div>
@@ -45,6 +47,7 @@
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is required" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is required" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category is required" Display="None" />
+			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxDescription" ErrorMessage="Description is required" Display="None" />
 			<asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 		</div>
 	</div>
