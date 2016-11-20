@@ -10,9 +10,9 @@ namespace COMP229_assignment01
 {
 	public static class Db
 	{
-		private static DbContext _context;
+		private static RecipeLandEntities _context;
 
-		public static DbContext Context => _context ?? (_context = new RecipeLandEntities());
+		public static RecipeLandEntities Context => _context ?? (_context = new RecipeLandEntities());
 
 		public static void AddRecipe(string name, string author, string category, TimeSpan? cookingTime, int cuisineId, bool isPrivate, string description)
 		{
