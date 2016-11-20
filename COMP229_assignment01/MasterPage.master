@@ -17,6 +17,13 @@
 		Application.UnLock();
 	}
 
+	/*
+	private void ButtonSearch_OnClick(object sender, EventArgs e)
+	{
+		Response.Redirect($"~/Search.aspx?q={Server.HtmlEncode(TextBoxSearch.Text)}", true);
+	}
+	*/
+
 </script>
 
 
@@ -36,7 +43,7 @@
 			// Make page in navigation bar active
 			var aTags = $("#navigationBar li a");
 			for (var i = 0; i < aTags.length; i++) {
-				if (aTags[i].href === location.href) {
+				if (aTags[i].href === location.href.split('?')[0]) {
 					$("#navigationBar li")[i].classList.add("active");
 					break;
 				}
@@ -65,17 +72,18 @@
 					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>Search</a></li>
 				</ul>
 
-				<div class="navbar-nav navbar-form navbar-right">
+				<%--<div class="navbar-nav navbar-form navbar-right">
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							<input name="s" class="form-control" type="text" placeholder="Find a recipe" />
+							<asp:TextBox runat="server" ID="TextBoxSearch" placeholder="Find a recipe" CssClass="form-control" />
 							<span class="input-group-btn">
-								<asp:Button runat="server" class="btn btn-default" Text="Go" />
+								<asp:Button runat="server" ID="ButtonSearch" class="btn btn-default" Text="Go" OnClick="ButtonSearch_OnClick" />
 							</span>
 						</div>
 					</div>
-				</div>
+				</div>--%>
+
 			</div>
 		</nav>
 

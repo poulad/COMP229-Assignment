@@ -2,23 +2,34 @@
 
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
 	<div class="container">
-			<div class="col-md-6 col-md-push-3">
-				<div class="h3 text-center">Find Recepies</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="h3 text-center">Search for recepies</div>
 				<dl class="dl-horizontal">
-<%--					<formControl:FormInput runat="server" Text="Recipe Name" />
-					<formControl:FormInput runat="server" Text="Submitted By" />--%>
+					<dt class="h4">Recipe Name</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxRecipeName" CssClass="form-control" />
+					</dd>
+					<dt class="h4">Category</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxCategory" CssClass="form-control" />
+					</dd>
 					<dt class="h4">Cuisine</dt>
 					<dd>
-						<asp:DropDownList runat="server" CssClass="dropdown form-control" />
+						<asp:DropDownList runat="server" ID="DropDownCuisine" CssClass="dropdown form-control" DataSourceID="LinqDS" DataTextField="Name" DataValueField="Id" />
+						<asp:LinqDataSource runat="server" ID="LinqDS" ContextTypeName="COMP229_assignment01.RecipeLandEntities" EntityTypeName="" Select="new (Id, Name)" TableName="Cuisines">
+						</asp:LinqDataSource>
 					</dd>
-					<dt></dt>
-					<dd>
-						<asp:CheckBox runat="server" Text="Only Private Recipes" CssClass="h4" />
-					</dd>
-					<dt></dt>
-					<dd>
-						<asp:Button runat="server" Text="Submit" CssClass="btn btn-default pull-right" /></dd>
 				</dl>
 			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<asp:Button runat="server" ID="ButtonSearch" Text="Search" CssClass="btn btn-primary pull-right" />
+			</div>
+		</div>
+
+
 	</div>
 </asp:Content>

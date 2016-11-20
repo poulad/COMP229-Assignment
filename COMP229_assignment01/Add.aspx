@@ -36,7 +36,6 @@
 					<dd>
 						<asp:TextBox runat="server" ID="TextBoxDescription" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
 					</dd>
-					<dt></dt>
 				</dl>
 			</div>
 		</div>

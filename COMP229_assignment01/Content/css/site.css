@@ -34,6 +34,10 @@ footer {
 			color: #ACF;
 		}
 
+select option {
+	padding: 5px;
+}
+
 .gridview {
 	width: 90%;
 	margin: 20px auto;
@@ -52,3 +56,4 @@ footer {
 		font-weight: 100;
 		font-style: normal;
 	}
+
