@@ -1,28 +1,26 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="COMP229_assignment01.Add" MasterPageFile="MasterPage.master" %>
 
-<%@ Register TagPrefix="formControl" TagName="FormInput" Src="FormInput.ascx" %>
-
-<asp:Content ContentPlaceHolderID="headPlaceHolder" runat="server">
-	<script type="text/javascript">
-		$(function () {
-			$("#navigationBar").children()[2].classList.add("active");
-		});
-	</script>
-</asp:Content>
-
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
 	<div class="container">
 			<div class="col-md-6 col-md-push-3">
 				<div class="h3 text-center">Add your recepies</div>
 				<dl class="dl-horizontal">
-					<formControl:FormInput runat="server" Text="Recipe Name" />
-					<formControl:FormInput runat="server" Text="Submitted By" />
+					<dt class="h4">Recipe Name</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxRecipeName" CssClass="form-control" />
+					</dd>
+					<dt class="h4">Author</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxAuthor" CssClass="form-control" />
+					</dd>
 					<dt class="h4">Category</dt>
 					<dd>
-						<asp:DropDownList runat="server" CssClass="dropdown form-control" />
+						<asp:DropDownList runat="server" ID="DropDownCategory" CssClass="dropdown form-control" />
 					</dd>
-					<formControl:FormInput runat="server" Text="Cooking Time" />
-					<formControl:FormInput runat="server" Text="Portions" />
+					<dt class="h4">Cooking time</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" />
+					</dd>
 					<dt class="h4">Cuisine</dt>
 					<dd>
 						<asp:DropDownList runat="server" CssClass="dropdown form-control" />

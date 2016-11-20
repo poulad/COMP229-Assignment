@@ -1,0 +1,38 @@
+﻿.navbar-default {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.nav-brand {
+   height: 40px;
+}
+
+.jumbotron {
+   margin-top: .5em;
+}
+
+footer {
+   padding: 1em .5em;
+}
+
+.dl-horizontal dt, .dl-horizontal dd {
+	margin: 5px;
+}
+
+.input-required:after {
+	content: '*';
+	color: #f00;
+}
+
+footer {
+   color: white;
+   background-color: #088;
+}
+
+footer a, footer a:visited {
+   color: #AFA;
+}
+
+footer a:hover {
+   color: #ACF;
+}

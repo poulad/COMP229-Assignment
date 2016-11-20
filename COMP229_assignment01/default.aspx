@@ -1,13 +1,5 @@
 ﻿<%@ Page Inherits="COMP229_assignment01.Default" Language="C#" AutoEventWireup="true" MasterPageFile="MasterPage.master" CodeBehind="Default.aspx.cs" %>
 
-<asp:Content ContentPlaceHolderID="headPlaceHolder" runat="server">
-	<script type="text/javascript">
-		$(function () {
-			$("#navigationBar").children()[0].classList.add("active");
-		});
-	</script>
-</asp:Content>
-
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
 
 	<div id="carousel" class="carousel slide hidden-xs hidden-sm" data-ride="carousel">

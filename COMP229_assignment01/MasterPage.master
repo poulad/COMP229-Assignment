@@ -3,23 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <script runat="server">
 
-	protected void lightThemeButton_Click(object sender, EventArgs e)
-	{
-		Session["theme"] = "Light";
-		// reload the page afterward. Theme changes on Page_PreInit event
-		Response.Redirect(Request.RawUrl);
-	}
-
-	protected void darkThemeButton_Click(object sender, EventArgs e)
-	{
-		Session["theme"] = "Dark";
-		// reload the page afterward. Theme changes on Page_PreInit event
-		Response.Redirect(Request.RawUrl);
-	}
-
 	protected void Page_Load(object sender, EventArgs e)
 	{
 		int counter = 0;
+		Application.Lock();
 		if (Application["visits"] != null)
 		{
 			counter = (int)Application["visits"];
@@ -27,20 +14,34 @@
 		counter++;
 		visitCount.Text = counter + "";
 		Application["visits"] = counter;
+		Application.UnLock();
 	}
 
 </script>
 
 
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<title>Recipe Land</title>
-	<link href="Content/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="Content/css/site-common.css" rel="stylesheet" />
-	<script type="text/javascript" src="Content/js/jquery.min.js"></script>
-	<script type="text/javascript" src="Content/js/bootstrap.min.js"></script>
-	<link href="Content/images/chef.svg" rel="shortcut icon" type="image/x-icon" />
-
+	<link href="<%= ResolveUrl("~/Content/css/bootstrap.min.css") %>" rel="stylesheet" />
+	<link href="<%= ResolveUrl("~/Content/css/site.css") %>" rel="stylesheet" />
+	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery.min.js") %>"></script>
+	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/bootstrap.min.js") %>"></script>
+	<link href="<%= ResolveUrl("Content/images/chef.svg") %>" rel="shortcut icon" type="image/x-icon" />
+	<script type="text/javascript">
+		$(function () {
+			// Make page in navigation bar active
+			var aTags = $("#navigationBar li a");
+			for (var i = 0; i < aTags.length; i++) {
+				if (aTags[i].href === location.href) {
+					$("#navigationBar li")[i].classList.add("active");
+					break;
+				}
+			}
+		});
+	</script>
 	<asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
 	</asp:ContentPlaceHolder>
 </head>
@@ -50,10 +51,14 @@
 		<nav class="container-fluid navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<img class="img-responsive nav-brand" src="Content/images/logo.svg" />
+					<asp:Image runat="server" CssClass="img-responsive nav-brand" ImageUrl="~/Content/images/logo.svg"/>
 				</div>
 				<ul id="navigationBar" class="nav navbar-nav">
-					<li><a href="Default.aspx"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+					<li>
+						<asp:HyperLink runat="server" NavigateUrl="~">
+							<span class="glyphicon glyphicon-home"></span> Home
+						</asp:HyperLink>
+					</li>
 					<li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>Recipes</a></li>
 					<li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>Add</a></li>
 					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>Search</a></li>
@@ -65,7 +70,7 @@
 							<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 							<input name="s" class="form-control" type="text" placeholder="Find a recipe" />
 							<span class="input-group-btn">
-								<asp:Button runat="server" class="btn btn-default" Text="Go"/>
+								<asp:Button runat="server" class="btn btn-default" Text="Go" />
 							</span>
 						</div>
 					</div>
@@ -94,14 +99,6 @@
 					<asp:Label runat="server" ID="visitCount" ForeColor="#f2f2f2" />
 					visits
 				</p>
-				<div class="col-md-2 pull-right">
-					<h4>Select a theme:</h4>
-					<div class="form-group btn-group">
-						<asp:Button class="btn btn-default" runat="server" Text="Light" OnClick="lightThemeButton_Click" />
-						<asp:Button class="btn btn-default" BackColor="gray" ForeColor="azure" runat="server" Text="Dark" OnClick="darkThemeButton_Click" />
-					</div>
-				</div>
-
 			</div>
 		</footer>
 	</form>
