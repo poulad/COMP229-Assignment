@@ -2,20 +2,21 @@
 
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
 	<div class="container">
-			<div class="col-md-6 col-md-push-3">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
 				<div class="h3 text-center">Add your recepies</div>
 				<dl class="dl-horizontal">
-					<dt class="h4">Recipe Name</dt>
+					<dt class="h4 input-required">Recipe Name</dt>
 					<dd>
 						<asp:TextBox runat="server" ID="TextBoxRecipeName" CssClass="form-control" />
 					</dd>
-					<dt class="h4">Author</dt>
+					<dt class="h4 input-required">Author</dt>
 					<dd>
 						<asp:TextBox runat="server" ID="TextBoxAuthor" CssClass="form-control" />
 					</dd>
-					<dt class="h4">Category</dt>
+					<dt class="h4 input-required">Category</dt>
 					<dd>
-						<asp:DropDownList runat="server" ID="DropDownCategory" CssClass="dropdown form-control" />
+						<asp:TextBox runat="server" ID="TextBoxCategory" CssClass="form-control" />
 					</dd>
 					<dt class="h4">Cooking time</dt>
 					<dd>
@@ -27,16 +28,24 @@
 					</dd>
 					<dt></dt>
 					<dd>
-						<asp:CheckBox runat="server" Text="Mark as Private" CssClass="h4" />
+						<asp:CheckBox runat="server" Text="Mark as Private" CssClass="" />
 					</dd>
-					<dt class="h4">Description</dt>
+					<dt class="h4 input-required">Description</dt>
 					<dd>
 						<asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
 					</dd>
 					<dt></dt>
 					<dd>
-						<asp:Button runat="server" Text="Submit" CssClass="btn btn-default pull-right" /></dd>
+						<asp:Button runat="server" Text="Submit" CssClass="btn btn-primary pull-right" /></dd>
 				</dl>
 			</div>
+		</div>
+
+		<div class="row">
+			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is required" Display="None" />
+			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is required" Display="None" />
+			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category is required" Display="None" />
+			<asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
+		</div>
 	</div>
 </asp:Content>

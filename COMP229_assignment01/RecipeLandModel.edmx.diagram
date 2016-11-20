@@ -5,7 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3224b555411e4fc79c3dcead012cebbc" Name="Diagram1">
-        <EntityTypeShape EntityType="RecipeLandModel.Recipe" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeLandModel.Category" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="RecipeLandModel.Cuisine" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="RecipeLandModel.Recipe" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="RecipeLandModel.FK__Recipes__Categor__5165187F" />
+        <AssociationConnector Association="RecipeLandModel.FK__Recipes__Cuisine__5070F446" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

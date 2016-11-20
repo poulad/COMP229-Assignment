@@ -31,13 +31,13 @@ namespace COMP229_assignment01 {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAuthor;
         
         /// <summary>
-        /// DropDownCategory control.
+        /// TextBoxCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownCategory;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCategory;
         
         /// <summary>
         /// TextBox1 control.

@@ -25,6 +25,8 @@ namespace COMP229_assignment01
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Cuisine> Cuisines { get; set; }
         public virtual DbSet<Recipe> Recipes { get; set; }
     }
 }

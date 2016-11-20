@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Win_Workspace\VisualStudio\COMP229_assignment01\COMP229_assignment01\RecipeLandModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Win_Workspace\VisualStudio\COMP229-Project\COMP229_assignment01\RecipeLandModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

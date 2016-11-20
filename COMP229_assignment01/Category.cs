@@ -12,16 +12,18 @@ namespace COMP229_assignment01
     using System;
     using System.Collections.Generic;
     
-    public partial class Recipe
+    public partial class Category
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Category()
+        {
+            this.Recipes = new HashSet<Recipe>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CuisineId { get; set; }
-        public int CategoryId { get; set; }
-        public string Descriptions { get; set; }
-        public Nullable<bool> IsPrivate { get; set; }
     
-        public virtual Category Category { get; set; }
-        public virtual Cuisine Cuisine { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recipe> Recipes { get; set; }
     }
 }

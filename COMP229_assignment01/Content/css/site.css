@@ -15,10 +15,6 @@ footer {
    padding: 1em .5em;
 }
 
-.dl-horizontal dt, .dl-horizontal dd {
-	margin: 5px;
-}
-
 .input-required:after {
 	content: '*';
 	color: #f00;
