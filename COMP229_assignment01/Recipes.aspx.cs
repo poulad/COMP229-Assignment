@@ -21,6 +21,11 @@ namespace COMP229_assignment01
 
 		   foreach (var recipe in Db.Context.Recipes)
 		   {
+			   if (recipe.IsPrivate ?? false)
+			   {
+				   continue;
+			   }
+
 			   list.Add(new
 			   {
 				   recipe.Name,

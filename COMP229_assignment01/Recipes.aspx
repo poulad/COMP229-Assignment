@@ -3,13 +3,13 @@
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
    <div class="container">
       <div class="row">
-			<asp:GridView ID="GridViewRecipes" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="DataSourceRecipes" ForeColor="#333333" GridLines="None">
+			<asp:GridView ID="GridViewRecipes" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="DataSourceRecipes" ForeColor="#333333" GridLines="None" CssClass="gridview" >
 				<AlternatingRowStyle BackColor="White" />
 				<Columns>
 					<asp:BoundField DataField="Name" HeaderText="Name"  />
 					<asp:BoundField DataField="Author" HeaderText="Author" />
 					<asp:BoundField DataField="Category" HeaderText="Category"  />
-					<asp:BoundField DataField="CookingTime" HeaderText="CookingTime" NullDisplayText="(Not Specified)" />
+					<asp:BoundField DataField="CookingTime" HeaderText="Cooking Time" NullDisplayText="(Not Specified)" />
 					<asp:BoundField DataField="Cuisine" HeaderText="Cuisine" />
 					
 					<asp:BoundField DataField="Description" HeaderText="Description" />

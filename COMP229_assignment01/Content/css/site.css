@@ -4,15 +4,15 @@
 }
 
 .nav-brand {
-   height: 40px;
+	height: 40px;
 }
 
 .jumbotron {
-   margin-top: .5em;
+	margin-top: .5em;
 }
 
 footer {
-   padding: 1em .5em;
+	padding: 1em .5em;
 }
 
 .input-required:after {
@@ -21,15 +21,34 @@ footer {
 }
 
 footer {
-   color: white;
-   background-color: #088;
+	color: white;
+	background-color: #088;
 	margin-top: 20px;
 }
 
-footer a, footer a:visited {
-   color: #AFA;
+	footer a, footer a:visited {
+		color: #AFA;
+	}
+
+		footer a:hover {
+			color: #ACF;
+		}
+
+.gridview {
+	width: 90%;
+	margin: 20px auto;
+	font-family: "Open Sans";
+	font-weight: 500;
+	line-height: 26.4px;
+	border-bottom: 1px solid #aaccff;
 }
 
-footer a:hover {
-   color: #ACF;
-}
+	.gridview th, .gridview td {
+		padding: .5em;
+	}
+
+	.gridview th {
+		font-size: 24px;
+		font-weight: 100;
+		font-style: normal;
+	}

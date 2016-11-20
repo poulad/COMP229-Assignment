@@ -25,6 +25,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<title>Recipe Land</title>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	<link href="<%= ResolveUrl("~/Content/css/bootstrap.min.css") %>" rel="stylesheet" />
 	<link href="<%= ResolveUrl("~/Content/css/site.css") %>" rel="stylesheet" />
 	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery.min.js") %>"></script>
