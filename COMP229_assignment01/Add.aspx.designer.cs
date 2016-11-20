@@ -49,6 +49,15 @@ namespace COMP229_assignment01 {
         protected global::System.Web.UI.WebControls.TextBox TextBoxCookingTime;
         
         /// <summary>
+        /// DropDownCuisine control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownCuisine;
+        
+        /// <summary>
         /// LinqDS control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace COMP229_assignment01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinqDataSource LinqDS;
+        
+        /// <summary>
+        /// CheckBoxIsPrivate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxIsPrivate;
         
         /// <summary>
         /// TextBoxDescription control.
@@ -74,5 +92,14 @@ namespace COMP229_assignment01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonSubmit;
+        
+        /// <summary>
+        /// LabelMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMessage;
     }
 }

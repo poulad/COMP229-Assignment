@@ -160,6 +160,7 @@
     <Compile Include="CustomError.aspx.designer.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Db.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

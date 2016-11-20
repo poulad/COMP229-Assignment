@@ -1,4 +1,5 @@
-﻿DROP TABLE Recipes;
+﻿DROP PROCEDURE AddRecipe;
+DROP TABLE Recipes;
 DROP TABLE Categories;
 DROP TABLE Cuisines;
 
@@ -61,3 +62,29 @@ CREATE TABLE [dbo].[Recipes]
 	[Description] NTEXT NOT NULL
 );
 
+
+CREATE PROCEDURE AddRecipe (
+	@name NCHAR(20),
+	@author NCHAR(50),
+	@category NCHAR(20),
+	@cookingTime TIME,
+	@cuisineId INT,
+	@isPrivate BIT,
+	@description NTEXT
+)
+AS
+BEGIN
+	declare @catId AS INT;
+	SELECT @catId = Id 
+		FROM Categories 
+		WHERE UPPER(@category) = UPPER(Name);
+	IF (@catId IS NULL)
+	BEGIN
+		INSERT INTO Categories(Name) VALUES(@category);
+		SELECT @catId = Id 
+			FROM Categories 
+			WHERE UPPER(@category) = UPPER(Name);
+	END
+	INSERT INTO Recipes(Name, Author, CategoryId, CookingTime, CuisineId, IsPrivate, Description)
+		VALUES(@name, @author, @catId, @cookingTime, @cuisineId, @isPrivate, @description);
+END

@@ -23,6 +23,7 @@ footer {
 footer {
    color: white;
    background-color: #088;
+	margin-top: 20px;
 }
 
 footer a, footer a:visited {
