@@ -18,7 +18,7 @@ namespace COMP229_assignment01
         public string Name { get; set; }
         public string Author { get; set; }
         public int CategoryId { get; set; }
-        public Nullable<System.TimeSpan> CookingTime { get; set; }
+        public Nullable<int> CookingTime { get; set; }
         public int CuisineId { get; set; }
         public Nullable<bool> IsPrivate { get; set; }
         public string Description { get; set; }

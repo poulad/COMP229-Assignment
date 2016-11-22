@@ -20,7 +20,8 @@
 					</dd>
 					<dt class="h4">Cooking time</dt>
 					<dd>
-						<asp:TextBox runat="server" ID="TextBoxCookingTime" CssClass="form-control" />
+						<asp:TextBox runat="server" ID="TextBoxCookingTime" CssClass="" />
+						minutes
 					</dd>
 					<dt class="h4 input-required">Cuisine</dt>
 					<dd>
@@ -54,11 +55,12 @@
 
 		<div class="row">
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is required" Display="None" />
-			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is too long" ValidationExpression="^\w{1,20}$" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is too long" ValidationExpression="^(?:\w| ){1,60}$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is required" Display="None" />
-			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is too long" ValidationExpression="^\w{1,50}$" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is too long" ValidationExpression="^\w{1,100}$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category is required" Display="None" />
-			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category name is too long" ValidationExpression="^\w{1,20}$" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category name is too long" ValidationExpression="^\w{1,50}$" Display="None" />
+			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCookingTime" ErrorMessage="Cooking time should be 1 minute or more" ValidationExpression="^[1-9]\d*$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxDescription" ErrorMessage="Description is required" Display="None" />
 			<asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 		</div>

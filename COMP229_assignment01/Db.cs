@@ -14,7 +14,7 @@ namespace COMP229_assignment01
 
 		public static RecipeLandEntities Context => _context ?? (_context = new RecipeLandEntities());
 
-		public static void AddRecipe(string name, string author, string category, TimeSpan? cookingTime, int cuisineId, bool isPrivate, string description)
+		public static void AddRecipe(string name, string author, string category, int? cookingTime, int cuisineId, bool isPrivate, string description)
 		{
 			var paramName = new SqlParameter("@name", name) { SqlDbType = SqlDbType.NChar, Size = 20 };
 			var paramAuthor = new SqlParameter("@author", author) { SqlDbType = SqlDbType.NChar, Size = 50 };

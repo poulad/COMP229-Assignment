@@ -12,14 +12,12 @@ namespace COMP229_assignment01
 
 	   protected void ButtonSubmit_OnClick(object sender, EventArgs e)
 	   {
-			
-			TimeSpan cookingTime;
-		   if(TimeSpan.TryParse(TextBoxCookingTime.Text, out cookingTime) == false)
-		   {
-			   cookingTime = TimeSpan.Zero;
-		   }
-
 		   int cuisineId = int.Parse(DropDownCuisine.SelectedValue);
+		   int? cookingTime;
+			if (string.IsNullOrEmpty(TextBoxCookingTime.Text))
+				cookingTime = null;
+			else
+				cookingTime = int.Parse(TextBoxCookingTime.Text);
 
 			Db.AddRecipe(TextBoxRecipeName.Text, TextBoxAuthor.Text, TextBoxCategory.Text, cookingTime, cuisineId, CheckBoxIsPrivate.Checked, TextBoxDescription.Text);
 

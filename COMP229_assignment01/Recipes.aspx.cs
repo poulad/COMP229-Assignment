@@ -31,7 +31,7 @@ namespace COMP229_assignment01
 				   recipe.Name,
 					recipe.Author,
 					Category = recipe.Category.Name,
-					CookingTime = recipe.CookingTime == TimeSpan.Zero ? null : recipe.CookingTime.ToString(),
+					recipe.CookingTime,
 					Cuisine = recipe.Cuisine.Name,
 					recipe.Description,
 			   });

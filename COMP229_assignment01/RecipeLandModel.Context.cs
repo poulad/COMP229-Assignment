@@ -12,6 +12,8 @@ namespace COMP229_assignment01
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class RecipeLandEntities : DbContext
     {
@@ -28,5 +30,38 @@ namespace COMP229_assignment01
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Cuisine> Cuisines { get; set; }
         public virtual DbSet<Recipe> Recipes { get; set; }
+    
+        public virtual int AddRecipe(string name, string author, string category, Nullable<int> cookingTime, Nullable<int> cuisineId, Nullable<bool> isPrivate, string description)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var authorParameter = author != null ?
+                new ObjectParameter("author", author) :
+                new ObjectParameter("author", typeof(string));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("category", category) :
+                new ObjectParameter("category", typeof(string));
+    
+            var cookingTimeParameter = cookingTime.HasValue ?
+                new ObjectParameter("cookingTime", cookingTime) :
+                new ObjectParameter("cookingTime", typeof(int));
+    
+            var cuisineIdParameter = cuisineId.HasValue ?
+                new ObjectParameter("cuisineId", cuisineId) :
+                new ObjectParameter("cuisineId", typeof(int));
+    
+            var isPrivateParameter = isPrivate.HasValue ?
+                new ObjectParameter("isPrivate", isPrivate) :
+                new ObjectParameter("isPrivate", typeof(bool));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("description", description) :
+                new ObjectParameter("description", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddRecipe", nameParameter, authorParameter, categoryParameter, cookingTimeParameter, cuisineIdParameter, isPrivateParameter, descriptionParameter);
+        }
     }
 }

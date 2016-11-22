@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Cuisines">
           <Key>
@@ -24,15 +24,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="Author" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="60" Nullable="false" />
+          <Property Name="Author" Type="nchar" MaxLength="100" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="CookingTime" Type="time" Precision="7" />
+          <Property Name="CookingTime" Type="int" />
           <Property Name="CuisineId" Type="int" Nullable="false" />
           <Property Name="IsPrivate" Type="bit" />
           <Property Name="Description" Type="ntext" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__6383C8BA">
+        <Association Name="FK__Recipes__Categor__1F98B2C1">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -44,7 +44,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__6477ECF3">
+        <Association Name="FK__Recipes__Cuisine__208CD6FA">
           <End Role="Cuisines" Type="Self.Cuisines" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -56,15 +56,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="AddRecipe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nchar" Mode="In" />
+          <Parameter Name="author" Type="nchar" Mode="In" />
+          <Parameter Name="category" Type="nchar" Mode="In" />
+          <Parameter Name="cookingTime" Type="int" Mode="In" />
+          <Parameter Name="cuisineId" Type="int" Mode="In" />
+          <Parameter Name="isPrivate" Type="bit" Mode="In" />
+          <Parameter Name="description" Type="ntext" Mode="In" />
+        </Function>
         <EntityContainer Name="RecipeLandModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cuisines" EntityType="Self.Cuisines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Recipes__Categor__6383C8BA" Association="Self.FK__Recipes__Categor__6383C8BA">
+          <AssociationSet Name="FK__Recipes__Categor__1F98B2C1" Association="Self.FK__Recipes__Categor__1F98B2C1">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__6477ECF3" Association="Self.FK__Recipes__Cuisine__6477ECF3">
+          <AssociationSet Name="FK__Recipes__Cuisine__208CD6FA" Association="Self.FK__Recipes__Cuisine__208CD6FA">
             <End Role="Cuisines" EntitySet="Cuisines" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
@@ -74,25 +83,34 @@
     <edmx:ConceptualModels>
       <Schema Namespace="RecipeLandModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RecipeLandEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="AddRecipe">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="author" Mode="In" Type="String" />
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="cookingTime" Mode="In" Type="Int32" />
+            <Parameter Name="cuisineId" Mode="In" Type="Int32" />
+            <Parameter Name="isPrivate" Mode="In" Type="Boolean" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Categories" EntityType="RecipeLandModel.Category" />
           <EntitySet Name="Cuisines" EntityType="RecipeLandModel.Cuisine" />
           <EntitySet Name="Recipes" EntityType="RecipeLandModel.Recipe" />
-          <AssociationSet Name="FK__Recipes__Categor__6383C8BA" Association="RecipeLandModel.FK__Recipes__Categor__6383C8BA">
+          <AssociationSet Name="FK__Recipes__Categor__1F98B2C1" Association="RecipeLandModel.FK__Recipes__Categor__1F98B2C1">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__6477ECF3" Association="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3">
+          <AssociationSet Name="FK__Recipes__Cuisine__208CD6FA" Association="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA">
             <End Role="Cuisine" EntitySet="Cuisines" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__6383C8BA" FromRole="Category" ToRole="Recipe" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__1F98B2C1" FromRole="Category" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Cuisine">
           <Key>
@@ -100,24 +118,24 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3" FromRole="Cuisine" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA" FromRole="Cuisine" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Author" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Name="Author" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="CookingTime" Type="Time" Precision="7" />
+          <Property Name="CookingTime" Type="Int32" />
           <Property Name="CuisineId" Type="Int32" Nullable="false" />
           <Property Name="IsPrivate" Type="Boolean" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__6383C8BA" FromRole="Recipe" ToRole="Category" />
-          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__6477ECF3" FromRole="Recipe" ToRole="Cuisine" />
+          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__1F98B2C1" FromRole="Recipe" ToRole="Category" />
+          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA" FromRole="Recipe" ToRole="Cuisine" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__6383C8BA">
+        <Association Name="FK__Recipes__Categor__1F98B2C1">
           <End Type="RecipeLandModel.Category" Role="Category" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__6477ECF3">
+        <Association Name="FK__Recipes__Cuisine__208CD6FA">
           <End Type="RecipeLandModel.Cuisine" Role="Cuisine" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -147,6 +165,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RecipeLandModelStoreContainer" CdmEntityContainer="RecipeLandEntities">
+          <FunctionImportMapping FunctionImportName="AddRecipe" FunctionName="RecipeLandModel.Store.AddRecipe" />
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="RecipeLandModel.Category">
               <MappingFragment StoreEntitySet="Categories">
@@ -177,7 +196,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

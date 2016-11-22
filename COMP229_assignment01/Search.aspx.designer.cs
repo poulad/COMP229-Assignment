@@ -22,31 +22,40 @@ namespace COMP229_assignment01 {
         protected global::System.Web.UI.WebControls.TextBox TextBoxRecipeName;
         
         /// <summary>
-        /// TextBoxCategory control.
+        /// TextBoxAuthor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCategory;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAuthor;
         
         /// <summary>
-        /// DropDownCuisine control.
+        /// RadioButtonPublic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownCuisine;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonPublic;
         
         /// <summary>
-        /// LinqDS control.
+        /// RadioButtonPrivate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource LinqDS;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonPrivate;
+        
+        /// <summary>
+        /// RadioButtoBoth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtoBoth;
         
         /// <summary>
         /// ButtonSearch control.
@@ -56,5 +65,14 @@ namespace COMP229_assignment01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonSearch;
+        
+        /// <summary>
+        /// GridViewResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewResults;
     }
 }

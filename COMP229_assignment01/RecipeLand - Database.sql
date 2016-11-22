@@ -1,38 +1,22 @@
-﻿DROP PROCEDURE AddRecipe;
-DROP TABLE Recipes;
-DROP TABLE Categories;
+﻿DROP TABLE Recipes;
 DROP TABLE Cuisines;
+DROP TABLE Categories;
+DROP PROCEDURE AddRecipe;
 
 CREATE TABLE Categories
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[Name] NCHAR(20) UNIQUE NOT NULL
+	[Name] NCHAR(50) UNIQUE NOT NULL
 );
 
-INSERT INTO Categories(Name)
-	VALUES('Breakfast')
-;
-INSERT INTO Categories(Name)
-	VALUES('Dessert')
-;
-INSERT INTO Categories(Name)
-	VALUES('Vegeterian')
-;
-INSERT INTO Categories(Name)
-	VALUES('Drink')
-;
-INSERT INTO Categories(Name)
-	VALUES('Main Dish')
-;
-INSERT INTO Categories(Name)
-	VALUES('Salad')
-;
-INSERT INTO Categories(Name)
-	VALUES('Sea Food')
-;
-INSERT INTO Categories(Name)
-	VALUES('Soup')
-;
+INSERT INTO Categories(Name) VALUES('Breakfast');
+INSERT INTO Categories(Name) VALUES('Dessert');
+INSERT INTO Categories(Name) VALUES('Vegeterian');
+INSERT INTO Categories(Name) VALUES('Drink');
+INSERT INTO Categories(Name) VALUES('Main Dish');
+INSERT INTO Categories(Name) VALUES('Salad');
+INSERT INTO Categories(Name) VALUES('Sea Food');
+INSERT INTO Categories(Name) VALUES('Soup');
 
 
 CREATE TABLE Cuisines
@@ -53,10 +37,10 @@ INSERT INTO Cuisines(Name) VALUES('Mexican');
 CREATE TABLE [dbo].[Recipes]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
-	[Name] NCHAR(20) NOT NULL,
-	[Author] NCHAR(50) NOT NULL,
+	[Name] NCHAR(60) NOT NULL,
+	[Author] NCHAR(100) NOT NULL,
 	[CategoryId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Categories](Id),
-	[CookingTime] TIME,
+	[CookingTime] INT,
 	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
 	[IsPrivate] BIT NULL DEFAULT 0,
 	[Description] NTEXT NOT NULL
@@ -64,10 +48,10 @@ CREATE TABLE [dbo].[Recipes]
 
 
 CREATE PROCEDURE AddRecipe (
-	@name NCHAR(20),
-	@author NCHAR(50),
-	@category NCHAR(20),
-	@cookingTime TIME,
+	@name NCHAR(60),
+	@author NCHAR(100),
+	@category NCHAR(50),
+	@cookingTime INT,
 	@cuisineId INT,
 	@isPrivate BIT,
 	@description NTEXT
@@ -88,3 +72,4 @@ BEGIN
 	INSERT INTO Recipes(Name, Author, CategoryId, CookingTime, CuisineId, IsPrivate, Description)
 		VALUES(@name, @author, @catId, @cookingTime, @cuisineId, @isPrivate, @description);
 END
+
