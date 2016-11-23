@@ -57,3 +57,7 @@ select option {
 		font-style: normal;
 	}
 
+	.gridview td {
+		word-wrap: break-word;
+		word-break: break-all;
+	}

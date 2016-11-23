@@ -35,9 +35,14 @@
 				<asp:Button runat="server" ID="ButtonSearch" Text="Search" CssClass="btn btn-primary pull-right" OnClick="ButtonSearch_OnClick" />
 			</div>
 		</div>
+		<div class="row">
+			<div class="text-center">
+				<asp:Label runat="server" ID="LabelMessage" CssClass="alert alert-info h5" Visible="False"></asp:Label>
+			</div>
+		</div>
 
 		<div class="row">
-			<asp:GridView ID="GridViewResults" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" ForeColor="#333333" GridLines="None" CssClass="gridview">
+			<asp:GridView ID="GridViewResults" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" ForeColor="#333333" GridLines="None" CssClass="gridview" Visible="False">
 				<AlternatingRowStyle BackColor="White" />
 				<Columns>
 					<asp:BoundField DataField="Name" HeaderText="Name" />

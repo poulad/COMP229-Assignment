@@ -13,15 +13,26 @@ namespace COMP229_assignment01
 
 		protected void ButtonSearch_OnClick(object sender, EventArgs e)
 		{
-			/*
+			string recipeName = TextBoxRecipeName.Text;
+			if (string.IsNullOrWhiteSpace(recipeName))
+				recipeName = null;
+
+			string author = TextBoxAuthor.Text;
+			if (string.IsNullOrWhiteSpace(author))
+				author = null;
+
+			bool? onlyPrivate = null;
+			if (RadioButtonPublic.Checked)
+				onlyPrivate = false;
+			else if (RadioButtonPrivate.Checked)
+				onlyPrivate = true;
+
 			var searchResults =
 				from r in Db.Context.Recipes
 				where
-					
-					//r.IsPrivate == CheckBoxPrivate.Checked &&
-					r.CuisineId == cuisineId &&
-					r.Category.Name.ToUpper().Contains((category ?? r.Category.Name).ToUpper()) &&
-					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper())
+					r.IsPrivate == (onlyPrivate ?? r.IsPrivate) &&
+					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) &&
+					r.Author.ToUpper().Contains((author ?? r.Author).ToUpper())
 				select new
 				{
 					r.Name,
@@ -30,12 +41,13 @@ namespace COMP229_assignment01
 					r.CookingTime,
 					Cuisine = r.Cuisine.Name,
 					r.Description,
+					r.IsPrivate,
 				};
 
 			GridViewResults.DataSource = searchResults.ToList();
 			GridViewResults.DataBind();
-			GridViewResults.Enabled = true;
-			*/
+			LabelMessage.Text = $"{searchResults.Count()} records found";
+			LabelMessage.Visible = GridViewResults.Visible = true;
 		}
 	}
 }

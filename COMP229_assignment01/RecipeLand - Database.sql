@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Recipes]
 	[CategoryId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Categories](Id),
 	[CookingTime] INT,
 	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
-	[IsPrivate] BIT NULL DEFAULT 0,
+	[IsPrivate] BIT NOT NULL DEFAULT 0,
 	[Description] NTEXT NOT NULL
 );
 

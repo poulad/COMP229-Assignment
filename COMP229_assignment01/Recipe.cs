@@ -20,7 +20,7 @@ namespace COMP229_assignment01
         public int CategoryId { get; set; }
         public Nullable<int> CookingTime { get; set; }
         public int CuisineId { get; set; }
-        public Nullable<bool> IsPrivate { get; set; }
+        public bool IsPrivate { get; set; }
         public string Description { get; set; }
     
         public virtual Category Category { get; set; }

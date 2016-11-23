@@ -29,10 +29,10 @@
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="CookingTime" Type="int" />
           <Property Name="CuisineId" Type="int" Nullable="false" />
-          <Property Name="IsPrivate" Type="bit" />
+          <Property Name="IsPrivate" Type="bit" Nullable="false" />
           <Property Name="Description" Type="ntext" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__1F98B2C1">
+        <Association Name="FK__Recipes__Categor__2EDAF651">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -44,7 +44,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__208CD6FA">
+        <Association Name="FK__Recipes__Cuisine__2FCF1A8A">
           <End Role="Cuisines" Type="Self.Cuisines" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -69,11 +69,11 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cuisines" EntityType="Self.Cuisines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Recipes__Categor__1F98B2C1" Association="Self.FK__Recipes__Categor__1F98B2C1">
+          <AssociationSet Name="FK__Recipes__Categor__2EDAF651" Association="Self.FK__Recipes__Categor__2EDAF651">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__208CD6FA" Association="Self.FK__Recipes__Cuisine__208CD6FA">
+          <AssociationSet Name="FK__Recipes__Cuisine__2FCF1A8A" Association="Self.FK__Recipes__Cuisine__2FCF1A8A">
             <End Role="Cuisines" EntitySet="Cuisines" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
@@ -95,11 +95,11 @@
           <EntitySet Name="Categories" EntityType="RecipeLandModel.Category" />
           <EntitySet Name="Cuisines" EntityType="RecipeLandModel.Cuisine" />
           <EntitySet Name="Recipes" EntityType="RecipeLandModel.Recipe" />
-          <AssociationSet Name="FK__Recipes__Categor__1F98B2C1" Association="RecipeLandModel.FK__Recipes__Categor__1F98B2C1">
+          <AssociationSet Name="FK__Recipes__Categor__2EDAF651" Association="RecipeLandModel.FK__Recipes__Categor__2EDAF651">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__208CD6FA" Association="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA">
+          <AssociationSet Name="FK__Recipes__Cuisine__2FCF1A8A" Association="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A">
             <End Role="Cuisine" EntitySet="Cuisines" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
@@ -110,7 +110,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__1F98B2C1" FromRole="Category" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__2EDAF651" FromRole="Category" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Cuisine">
           <Key>
@@ -118,7 +118,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA" FromRole="Cuisine" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A" FromRole="Cuisine" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
@@ -130,12 +130,12 @@
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="CookingTime" Type="Int32" />
           <Property Name="CuisineId" Type="Int32" Nullable="false" />
-          <Property Name="IsPrivate" Type="Boolean" />
+          <Property Name="IsPrivate" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__1F98B2C1" FromRole="Recipe" ToRole="Category" />
-          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__208CD6FA" FromRole="Recipe" ToRole="Cuisine" />
+          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__2EDAF651" FromRole="Recipe" ToRole="Category" />
+          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A" FromRole="Recipe" ToRole="Cuisine" />
         </EntityType>
-        <Association Name="FK__Recipes__Categor__1F98B2C1">
+        <Association Name="FK__Recipes__Categor__2EDAF651">
           <End Type="RecipeLandModel.Category" Role="Category" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -147,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__208CD6FA">
+        <Association Name="FK__Recipes__Cuisine__2FCF1A8A">
           <End Type="RecipeLandModel.Cuisine" Role="Cuisine" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>

@@ -121,7 +121,6 @@
     <Content Include="Content\CustomError.html" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\images\error.jpg" />
-    <Content Include="CustomError.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="RecipeLandModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -152,13 +151,6 @@
     </Compile>
     <Compile Include="Cuisine.cs">
       <DependentUpon>RecipeLandModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomError.aspx.cs">
-      <DependentUpon>CustomError.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomError.aspx.designer.cs">
-      <DependentUpon>CustomError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Db.cs" />
     <Compile Include="Default.aspx.cs">

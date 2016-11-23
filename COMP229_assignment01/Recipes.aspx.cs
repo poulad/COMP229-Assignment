@@ -21,11 +21,6 @@ namespace COMP229_assignment01
 
 		   foreach (var recipe in Db.Context.Recipes)
 		   {
-			   if (recipe.IsPrivate ?? false)
-			   {
-				   continue;
-			   }
-
 			   list.Add(new
 			   {
 				   recipe.Name,
@@ -34,6 +29,7 @@ namespace COMP229_assignment01
 					recipe.CookingTime,
 					Cuisine = recipe.Cuisine.Name,
 					recipe.Description,
+					IsPrivate = recipe.IsPrivate ? "Private" : "Public",
 			   });
 		   }
 
