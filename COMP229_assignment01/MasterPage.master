@@ -17,13 +17,6 @@
 		Application.UnLock();
 	}
 
-	/*
-	private void ButtonSearch_OnClick(object sender, EventArgs e)
-	{
-		Response.Redirect($"~/Search.aspx?q={Server.HtmlEncode(TextBoxSearch.Text)}", true);
-	}
-	*/
-
 </script>
 
 
@@ -38,7 +31,7 @@
 	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery.min.js") %>"></script>
 	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/bootstrap.min.js") %>"></script>
 	<link href="<%= ResolveUrl("Content/images/chef.svg") %>" rel="shortcut icon" type="image/x-icon" />
-	<script type="text/javascript">
+<script type="text/javascript">
 		$(function () {
 			// Make page in navigation bar active
 			var aTags = $("#navigationBar li a");
@@ -49,7 +42,7 @@
 				}
 			}
 		});
-	</script>
+    </script>
 	<asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
 	</asp:ContentPlaceHolder>
 </head>
@@ -59,30 +52,53 @@
 		<nav class="container-fluid navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<asp:Image runat="server" CssClass="img-responsive nav-brand" ImageUrl="~/Content/images/logo.svg"/>
+					<asp:Image runat="server" CssClass="img-responsive nav-brand" ImageUrl="~/Content/images/logo.svg" />
 				</div>
 				<ul id="navigationBar" class="nav navbar-nav">
 					<li>
-						<asp:HyperLink runat="server" NavigateUrl="~">
+						<asp:HyperLink runat="server" NavigateUrl="Default.aspx">
 							<span class="glyphicon glyphicon-home"></span> Home
 						</asp:HyperLink>
 					</li>
-					<li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>Recipes</a></li>
-					<li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>Add</a></li>
-					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>Search</a></li>
+					<li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>
+						Recipes</a></li>
+					<li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>
+						Add</a></li>
+					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>
+						Search</a></li>
 				</ul>
 
-				<%--<div class="navbar-nav navbar-form navbar-right">
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							<asp:TextBox runat="server" ID="TextBoxSearch" placeholder="Find a recipe" CssClass="form-control" />
-							<span class="input-group-btn">
-								<asp:Button runat="server" ID="ButtonSearch" class="btn btn-default" Text="Go" OnClick="ButtonSearch_OnClick" />
-							</span>
-						</div>
-					</div>
-				</div>--%>
+				<div class="navbar-nav navbar-form navbar-right">
+					<asp:LoginView ID="LoginView" runat="server">
+						<LoggedInTemplate>
+							<div runat="server" id="RightNavBarUser" clientidmode="Static" class="navbar-nav navbar-form navbar-right">
+								<div class="btn-group">
+									<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<asp:LoginName ID="LoginName" runat="server" />
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li>
+											<asp:HyperLink runat="server" NavigateUrl="Add.aspx" Text="Add new recipe" /></li>
+										<li>
+											<asp:HyperLink runat="server" NavigateUrl="Search.aspx" Text="Find a recipe" /></li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<asp:HyperLink runat="server" NavigateUrl="SignOut.aspx" Text="Logout" /></li>
+									</ul>
+								</div>
+							</div>
+						</LoggedInTemplate>
+						<AnonymousTemplate>
+							<div class="form-group">
+								<asp:HyperLink runat="server" NavigateUrl="SignUp.aspx" Text="Register" CssClass="btn btn-success" />
+							</div>
+							<div class="form-group">
+								<asp:HyperLink runat="server" NavigateUrl="Login.aspx" Text="Login" CssClass="btn btn-primary" />
+							</div>
+						</AnonymousTemplate>
+					</asp:LoginView>
+				</div>
 
 			</div>
 		</nav>
@@ -101,7 +117,8 @@
 		<footer class="container-fluid">
 			<div class="container">
 				<p class="col-md-8 h4">
-					<span class="glyphicon glyphicon-copyright-mark"></span> Copyright 2016. Poulad Ashraf Pour. This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" title="Learn more about Creative Commons license" target="_blank">CC&nbsp;4.0&nbsp;BY</a> license.
+					<span class="glyphicon glyphicon-copyright-mark"></span>
+					Copyright 2016. Poulad Ashraf Pour. This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" title="Learn more about Creative Commons license" target="_blank">CC&nbsp;4.0&nbsp;BY</a> license.
 				</p>
 				<p class="col-md-8 h4" style="color: azure;">
 					<span class="glyphicon glyphicon-user"></span>

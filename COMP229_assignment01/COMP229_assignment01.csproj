@@ -94,6 +94,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
     <Content Include="RecipeLand - Database.sql" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.master" />
@@ -133,6 +134,8 @@
       <LastGenOutput>RecipeLandModel.cs</LastGenOutput>
     </Content>
     <Content Include="Recipes.aspx" />
+    <Content Include="SignOut.aspx" />
+    <Content Include="SignUp.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -145,6 +148,36 @@
     </Compile>
     <Compile Include="Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
+      <DependentUpon>RecipeLandModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>RecipeLandModel.tt</DependentUpon>
@@ -159,6 +192,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs">
@@ -185,6 +225,20 @@
     </Compile>
     <Compile Include="Recipes.aspx.designer.cs">
       <DependentUpon>Recipes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>

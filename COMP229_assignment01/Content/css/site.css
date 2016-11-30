@@ -1,4 +1,8 @@
-﻿.navbar-default {
+﻿body {
+	font-family: 'open sans';
+}
+
+.navbar-default {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -61,3 +65,7 @@ select option {
 		word-wrap: break-word;
 		word-break: break-all;
 	}
+
+#RightNavBarUser {
+	margin: 0;
+}

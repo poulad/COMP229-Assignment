@@ -38,7 +38,7 @@ CREATE TABLE [dbo].[Recipes]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
 	[Name] NCHAR(60) NOT NULL,
-	[Author] NCHAR(100) NOT NULL,
+	[User_Id] UNIQUEIDENTIFIER NOT NULL,
 	[CategoryId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Categories](Id),
 	[CookingTime] INT,
 	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
