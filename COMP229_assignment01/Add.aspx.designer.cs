@@ -22,31 +22,22 @@ namespace COMP229_assignment01 {
         protected global::System.Web.UI.WebControls.TextBox TextBoxRecipeName;
         
         /// <summary>
-        /// TextBoxAuthor control.
+        /// DropDownCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxAuthor;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownCategory;
         
         /// <summary>
-        /// TextBoxCategory control.
+        /// DataSourceCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCategory;
-        
-        /// <summary>
-        /// TextBoxCookingTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCookingTime;
+        protected global::System.Web.UI.WebControls.LinqDataSource DataSourceCategory;
         
         /// <summary>
         /// DropDownCuisine control.
@@ -65,6 +56,15 @@ namespace COMP229_assignment01 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinqDataSource LinqDS;
+        
+        /// <summary>
+        /// TextBoxCookingTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCookingTime;
         
         /// <summary>
         /// CheckBoxIsPrivate control.

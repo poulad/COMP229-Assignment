@@ -10,24 +10,22 @@
 					<dd>
 						<asp:TextBox runat="server" ID="TextBoxRecipeName" CssClass="form-control" />
 					</dd>
-					<dt class="h4 input-required">Author</dt>
-					<dd>
-						<asp:TextBox runat="server" ID="TextBoxAuthor" CssClass="form-control" />
-					</dd>
 					<dt class="h4 input-required">Category</dt>
 					<dd>
-						<asp:TextBox runat="server" ID="TextBoxCategory" CssClass="form-control" />
-					</dd>
-					<dt class="h4">Cooking time</dt>
-					<dd>
-						<asp:TextBox runat="server" ID="TextBoxCookingTime" CssClass="" />
-						minutes
+						<asp:DropDownList runat="server" ID="DropDownCategory" CssClass="dropdown form-control" DataSourceID="DataSourceCategory" DataTextField="Name" DataValueField="Id" />
+						<asp:LinqDataSource runat="server" ID="DataSourceCategory" ContextTypeName="COMP229_assignment01.RecipeLandEntities" EntityTypeName="" Select="new (Id, Name)" TableName="Categories">
+						</asp:LinqDataSource>
 					</dd>
 					<dt class="h4 input-required">Cuisine</dt>
 					<dd>
 						<asp:DropDownList runat="server" ID="DropDownCuisine" CssClass="dropdown form-control" DataSourceID="LinqDS" DataTextField="Name" DataValueField="Id" />
 						<asp:LinqDataSource runat="server" ID="LinqDS" ContextTypeName="COMP229_assignment01.RecipeLandEntities" EntityTypeName="" Select="new (Id, Name)" TableName="Cuisines">
 						</asp:LinqDataSource>
+					</dd>
+					<dt class="h4">Cooking time</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxCookingTime" CssClass="" />
+						minutes
 					</dd>
 					<dt></dt>
 					<dd>
@@ -56,10 +54,6 @@
 		<div class="row">
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is required" Display="None" />
 			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxRecipeName" ErrorMessage="Recipe name is too long" ValidationExpression="^(?:\w| ){1,60}$" Display="None" />
-			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is required" Display="None" />
-			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxAuthor" ErrorMessage="Author name is too long" ValidationExpression="^\w{1,100}$" Display="None" />
-			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category is required" Display="None" />
-			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCategory" ErrorMessage="Category name is too long" ValidationExpression="^\w{1,50}$" Display="None" />
 			<asp:RegularExpressionValidator runat="server" ControlToValidate="TextBoxCookingTime" ErrorMessage="Cooking time should be 1 minute or more" ValidationExpression="^[1-9]\d*$" Display="None" />
 			<asp:RequiredFieldValidator runat="server" ControlToValidate="TextBoxDescription" ErrorMessage="Description is required" Display="None" />
 			<asp:ValidationSummary runat="server" CssClass="alert alert-danger" />

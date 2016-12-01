@@ -6,11 +6,6 @@ namespace COMP229_assignment01
 {
 	public partial class Search : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-
-		}
-
 		protected void ButtonSearch_OnClick(object sender, EventArgs e)
 		{
 			string recipeName = TextBoxRecipeName.Text;
@@ -31,12 +26,12 @@ namespace COMP229_assignment01
 				from r in Db.Context.Recipes
 				where
 					r.IsPrivate == (onlyPrivate ?? r.IsPrivate) &&
-					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) //&&
-					//r.Author.ToUpper().Contains((author ?? r.Author).ToUpper())
+					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) &&
+					r.aspnet_Users.UserName.ToUpper().Contains((author ?? r.aspnet_Users.UserName).ToUpper())
 				select new
 				{
 					r.Name,
-					//r.Author,
+					Author = r.aspnet_Users.UserName,
 					Category = r.Category.Name,
 					r.CookingTime,
 					Cuisine = r.Cuisine.Name,
