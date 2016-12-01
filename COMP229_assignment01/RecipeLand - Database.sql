@@ -1,7 +1,7 @@
-﻿DROP TABLE Recipes;
+﻿DROP PROCEDURE AddRecipe;
+DROP TABLE Recipes;
 DROP TABLE Cuisines;
 DROP TABLE Categories;
-DROP PROCEDURE AddRecipe;
 
 CREATE TABLE Categories
 (
@@ -38,15 +38,16 @@ CREATE TABLE [dbo].[Recipes]
 (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
 	[Name] NCHAR(60) NOT NULL,
-	[User_Id] UNIQUEIDENTIFIER NOT NULL,
+	[User_Id] UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES [dbo].[aspnet_Users](UserId),
 	[CategoryId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Categories](Id),
 	[CookingTime] INT,
+	[Image_File] CHAR(20),
 	[CuisineId] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[Cuisines](Id),
 	[IsPrivate] BIT NOT NULL DEFAULT 0,
 	[Description] NTEXT NOT NULL
 );
 
-
+/*
 CREATE PROCEDURE AddRecipe (
 	@name NCHAR(60),
 	@author NCHAR(100),
@@ -72,4 +73,4 @@ BEGIN
 	INSERT INTO Recipes(Name, Author, CategoryId, CookingTime, CuisineId, IsPrivate, Description)
 		VALUES(@name, @author, @catId, @cookingTime, @cuisineId, @isPrivate, @description);
 END
-
+*/

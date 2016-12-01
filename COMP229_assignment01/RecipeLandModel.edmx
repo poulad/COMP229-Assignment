@@ -156,9 +156,10 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="60" Nullable="false" />
-          <Property Name="Author" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="User_Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="CookingTime" Type="int" />
+          <Property Name="Image_File" Type="char" MaxLength="20" />
           <Property Name="CuisineId" Type="int" Nullable="false" />
           <Property Name="IsPrivate" Type="bit" Nullable="false" />
           <Property Name="Description" Type="ntext" Nullable="false" />
@@ -295,7 +296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Categor__2EDAF651">
+        <Association Name="FK__Recipes__Categor__5B78929E">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -307,7 +308,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__2FCF1A8A">
+        <Association Name="FK__Recipes__Cuisine__5C6CB6D7">
           <End Role="Cuisines" Type="Self.Cuisines" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -319,15 +320,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="AddRecipe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="name" Type="nchar" Mode="In" />
-          <Parameter Name="author" Type="nchar" Mode="In" />
-          <Parameter Name="category" Type="nchar" Mode="In" />
-          <Parameter Name="cookingTime" Type="int" Mode="In" />
-          <Parameter Name="cuisineId" Type="int" Mode="In" />
-          <Parameter Name="isPrivate" Type="bit" Mode="In" />
-          <Parameter Name="description" Type="ntext" Mode="In" />
-        </Function>
+        <Association Name="FK__Recipes__User_Id__5A846E65">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RecipeLandModelStoreContainer">
           <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
@@ -387,12 +391,16 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Categor__2EDAF651" Association="Self.FK__Recipes__Categor__2EDAF651">
+          <AssociationSet Name="FK__Recipes__Categor__5B78929E" Association="Self.FK__Recipes__Categor__5B78929E">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__2FCF1A8A" Association="Self.FK__Recipes__Cuisine__2FCF1A8A">
+          <AssociationSet Name="FK__Recipes__Cuisine__5C6CB6D7" Association="Self.FK__Recipes__Cuisine__5C6CB6D7">
             <End Role="Cuisines" EntitySet="Cuisines" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__User_Id__5A846E65" Association="Self.FK__Recipes__User_Id__5A846E65">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
         </EntityContainer>
@@ -459,11 +467,15 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Categor__2EDAF651" Association="RecipeLandModel.FK__Recipes__Categor__2EDAF651">
+          <AssociationSet Name="FK__Recipes__User_Id__5A846E65" Association="RecipeLandModel.FK__Recipes__User_Id__5A846E65">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Recipe" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recipes__Categor__5B78929E" Association="RecipeLandModel.FK__Recipes__Categor__5B78929E">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__2FCF1A8A" Association="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A">
+          <AssociationSet Name="FK__Recipes__Cuisine__5C6CB6D7" Association="RecipeLandModel.FK__Recipes__Cuisine__5C6CB6D7">
             <End Role="Cuisine" EntitySet="Cuisines" />
             <End Role="Recipe" EntitySet="Recipes" />
           </AssociationSet>
@@ -593,6 +605,7 @@
           <NavigationProperty Name="aspnet_Membership" Relationship="RecipeLandModel.FK__aspnet_Me__UserI__540C7B00" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
           <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="RecipeLandModel.FK__aspnet_Pe__UserI__0F2D40CE" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
           <NavigationProperty Name="aspnet_Profile" Relationship="RecipeLandModel.FK__aspnet_Pr__UserI__681373AD" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__User_Id__5A846E65" FromRole="aspnet_Users" ToRole="Recipe" />
           <NavigationProperty Name="aspnet_Roles" Relationship="RecipeLandModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
@@ -621,7 +634,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__2EDAF651" FromRole="Category" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Categor__5B78929E" FromRole="Category" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Cuisine">
           <Key>
@@ -629,7 +642,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A" FromRole="Cuisine" ToRole="Recipe" />
+          <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__5C6CB6D7" FromRole="Cuisine" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
@@ -637,14 +650,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Name="Author" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="User_Id" Type="Guid" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="CookingTime" Type="Int32" />
+          <Property Name="Image_File" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="CuisineId" Type="Int32" Nullable="false" />
           <Property Name="IsPrivate" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__2EDAF651" FromRole="Recipe" ToRole="Category" />
-          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__2FCF1A8A" FromRole="Recipe" ToRole="Cuisine" />
+          <NavigationProperty Name="aspnet_Users" Relationship="RecipeLandModel.FK__Recipes__User_Id__5A846E65" FromRole="Recipe" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Category" Relationship="RecipeLandModel.FK__Recipes__Categor__5B78929E" FromRole="Recipe" ToRole="Category" />
+          <NavigationProperty Name="Cuisine" Relationship="RecipeLandModel.FK__Recipes__Cuisine__5C6CB6D7" FromRole="Recipe" ToRole="Cuisine" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__531856C7">
           <End Type="RecipeLandModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
@@ -754,7 +769,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Categor__2EDAF651">
+        <Association Name="FK__Recipes__User_Id__5A846E65">
+          <End Type="RecipeLandModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recipes__Categor__5B78929E">
           <End Type="RecipeLandModel.Category" Role="Category" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -766,7 +793,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__2FCF1A8A">
+        <Association Name="FK__Recipes__Cuisine__5C6CB6D7">
           <End Type="RecipeLandModel.Cuisine" Role="Cuisine" Multiplicity="1" />
           <End Type="RecipeLandModel.Recipe" Role="Recipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -788,7 +815,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RecipeLandModelStoreContainer" CdmEntityContainer="RecipeLandEntities">
-          <FunctionImportMapping FunctionImportName="AddRecipe" FunctionName="RecipeLandModel.Store.AddRecipe" />
           <EntitySetMapping Name="aspnet_Applications">
             <EntityTypeMapping TypeName="RecipeLandModel.aspnet_Applications">
               <MappingFragment StoreEntitySet="aspnet_Applications">
@@ -943,9 +969,10 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
                 <ScalarProperty Name="CuisineId" ColumnName="CuisineId" />
+                <ScalarProperty Name="Image_File" ColumnName="Image_File" />
                 <ScalarProperty Name="CookingTime" ColumnName="CookingTime" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -959,7 +986,7 @@
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

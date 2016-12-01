@@ -31,12 +31,12 @@ namespace COMP229_assignment01
 				from r in Db.Context.Recipes
 				where
 					r.IsPrivate == (onlyPrivate ?? r.IsPrivate) &&
-					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) &&
-					r.Author.ToUpper().Contains((author ?? r.Author).ToUpper())
+					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) //&&
+					//r.Author.ToUpper().Contains((author ?? r.Author).ToUpper())
 				select new
 				{
 					r.Name,
-					r.Author,
+					//r.Author,
 					Category = r.Category.Name,
 					r.CookingTime,
 					Cuisine = r.Cuisine.Name,

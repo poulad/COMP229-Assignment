@@ -18,6 +18,7 @@ namespace COMP229_assignment01
         public aspnet_Users()
         {
             this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
+            this.Recipes = new HashSet<Recipe>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
         }
     
@@ -34,6 +35,8 @@ namespace COMP229_assignment01
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
         public virtual aspnet_Profile aspnet_Profile { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recipe> Recipes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
     }
