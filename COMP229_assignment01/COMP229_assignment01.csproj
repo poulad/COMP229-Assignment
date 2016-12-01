@@ -79,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Add.aspx" />
+    <Content Include="Admins\Categories.aspx" />
+    <Content Include="Admins\Cuisines.aspx" />
+    <Content Include="Admins\Users.aspx" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\add.svg" />
@@ -148,6 +151,27 @@
     </Compile>
     <Compile Include="Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Cuisines.aspx.cs">
+      <DependentUpon>Cuisines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Cuisines.aspx.designer.cs">
+      <DependentUpon>Cuisines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="aspnet_Applications.cs">
       <DependentUpon>RecipeLandModel.tt</DependentUpon>

@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/jquery.min.js") %>"></script>
 	<script type="text/javascript" src="<%= ResolveUrl("~/Content/js/bootstrap.min.js") %>"></script>
 	<link href="<%= ResolveUrl("Content/images/chef.svg") %>" rel="shortcut icon" type="image/x-icon" />
-<script type="text/javascript">
+	<script type="text/javascript">
 		$(function () {
 			// Make page in navigation bar active
 			var aTags = $("#navigationBar li a");
@@ -42,7 +42,7 @@
 				}
 			}
 		});
-    </script>
+	</script>
 	<asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
 	</asp:ContentPlaceHolder>
 </head>
@@ -97,6 +97,38 @@
 								<asp:HyperLink runat="server" NavigateUrl="Login.aspx" Text="Login" CssClass="btn btn-primary" />
 							</div>
 						</AnonymousTemplate>
+
+						<RoleGroups>
+							<asp:RoleGroup Roles="Administrators">
+								<ContentTemplate>
+									<div runat="server" id="RightNavBarUser" clientidmode="Static" class="navbar-nav navbar-form navbar-right">
+										<div class="btn-group">
+											<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<asp:LoginName ID="LoginName" runat="server" />
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/Add.aspx" Text="Add new recipe" /></li>
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/Search.aspx" Text="Find a recipe" /></li>
+												<li role="separator" class="divider"></li>
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/Admins/Categories.aspx" Text="Manage Categories" /></li>
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/Admins/Cuisines.aspx" Text="Manage Cuisines" /></li>
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/Admins/Users.aspx" Text="Manage Users" /></li>
+												<li role="separator" class="divider"></li>
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/SignOut.aspx" Text="Logout" /></li>
+											</ul>
+										</div>
+									</div>
+								</ContentTemplate>
+							</asp:RoleGroup>
+						</RoleGroups>
+
 					</asp:LoginView>
 				</div>
 
