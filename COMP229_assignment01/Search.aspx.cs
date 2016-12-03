@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 
 
@@ -22,8 +23,18 @@ namespace COMP229_assignment01
 			else if (RadioButtonPrivate.Checked)
 				onlyPrivate = true;
 
+			IQueryable<Recipe> accessibleRecipes;
+			if (User.IsInRole("Administrators")) // Admins see all recipes
+				accessibleRecipes = Db.Context.Recipes;
+			else // Users see only public recipes and their own private recipes
+			{
+				var username = User.Identity.Name.ToLower();
+				accessibleRecipes = Db.Context.Recipes.Where(r => !r.IsPrivate || (r.aspnet_Users.LoweredUserName == username && r.IsPrivate));
+			}
+			accessibleRecipes = accessibleRecipes.Include("Cuisine").Include("Category").Include("aspnet_Users");
+
 			var searchResults =
-				from r in Db.Context.Recipes
+				from r in accessibleRecipes
 				where
 					r.IsPrivate == (onlyPrivate ?? r.IsPrivate) &&
 					r.Name.ToUpper().Contains((recipeName ?? r.Name).ToUpper()) &&
@@ -41,7 +52,7 @@ namespace COMP229_assignment01
 
 			GridViewResults.DataSource = searchResults.ToList();
 			GridViewResults.DataBind();
-			LabelMessage.Text = $"{searchResults.Count()} records found";
+			LabelMessage.Text = $"{searchResults.Count()} recipes found";
 			LabelMessage.Visible = GridViewResults.Visible = true;
 		}
 	}

@@ -1,16 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recipes.aspx.cs" Inherits="COMP229_assignment01.Recipes" MasterPageFile="MasterPage.master" %>
 
 <asp:Content ContentPlaceHolderID="contentPlaceHolder" runat="server">
-   <div class="container">
-      <div class="row">
-			<asp:GridView ID="GridViewRecipes" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="DataSourceRecipes" ForeColor="#333333" GridLines="None" CssClass="gridview" >
+	<div class="container">
+		<div class="row">
+			<asp:GridView ID="GridViewRecipes" ClientIDMode="Static" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="DataSourceRecipes" ForeColor="#333333" GridLines="None" CssClass="gridview">
 				<AlternatingRowStyle BackColor="White" />
 				<Columns>
-					<asp:BoundField DataField="Name" HeaderText="Name"  />
+					<asp:BoundField DataField="Name" HeaderText="Name" />
 					<asp:BoundField DataField="Author" HeaderText="Author" />
-					<asp:BoundField DataField="Category" HeaderText="Category"  />
-					<asp:BoundField DataField="CookingTime" HeaderText="Cooking Time" NullDisplayText="(Not Specified)" />
+					<asp:BoundField DataField="Category" HeaderText="Category" />
 					<asp:BoundField DataField="Cuisine" HeaderText="Cuisine" />
+					<asp:BoundField DataField="CookingTime" HeaderText="Cooking Time" NullDisplayText="(Not Specified)" />
 					<asp:BoundField DataField="IsPrivate" HeaderText="Public/Private" />
 					<asp:BoundField DataField="Description" HeaderText="Description" />
 				</Columns>
@@ -26,7 +26,7 @@
 				<SortedDescendingHeaderStyle BackColor="#4870BE" />
 			</asp:GridView>
 			<asp:ObjectDataSource runat="server" ID="DataSourceRecipes" SelectMethod="GetRecipes" TypeName="COMP229_assignment01.Recipes"></asp:ObjectDataSource>
-      </div>
-   </div>
+		</div>
+	</div>
 
 </asp:Content>

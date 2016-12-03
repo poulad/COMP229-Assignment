@@ -27,7 +27,7 @@ CREATE TABLE Cuisines
 
 INSERT INTO Cuisines(Name) VALUES('East Asian');
 INSERT INTO Cuisines(Name) VALUES('African');
-INSERT INTO Cuisines(Name) VALUES('Italina');
+INSERT INTO Cuisines(Name) VALUES('Italian');
 INSERT INTO Cuisines(Name) VALUES('Canadian');
 INSERT INTO Cuisines(Name) VALUES('Middle Eastern');
 INSERT INTO Cuisines(Name) VALUES('Indian');

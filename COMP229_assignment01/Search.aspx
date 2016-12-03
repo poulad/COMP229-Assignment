@@ -48,8 +48,9 @@
 					<asp:BoundField DataField="Name" HeaderText="Name" />
 					<asp:BoundField DataField="Author" HeaderText="Author" />
 					<asp:BoundField DataField="Category" HeaderText="Category" />
-					<asp:BoundField DataField="CookingTime" HeaderText="Cooking Time" NullDisplayText="(Not Specified)" />
 					<asp:BoundField DataField="Cuisine" HeaderText="Cuisine" />
+					<asp:BoundField DataField="CookingTime" HeaderText="Cooking Time" NullDisplayText="(Not Specified)" />
+					<asp:BoundField DataField="IsPrivate" HeaderText="Public/Private" />
 					<asp:BoundField DataField="Description" HeaderText="Description" />
 				</Columns>
 				<EditRowStyle BackColor="#2461BF" />
