@@ -11,7 +11,7 @@ namespace COMP229_assignment01.Admins
 		public ICollection GetUsers()
 		{
 			var dataSource = new List<object>();
-			foreach (var u in Db.Context.aspnet_Users)
+			foreach (var u in Db.Context.aspnet_Users.Include("aspnet_Roles").Include("aspnet_Membership"))
 			{
 				var roles = "";
 				foreach (var r in u.aspnet_Roles)
