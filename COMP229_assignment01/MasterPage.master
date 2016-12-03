@@ -60,12 +60,24 @@
 							<span class="glyphicon glyphicon-home"></span> Home
 						</asp:HyperLink>
 					</li>
-					<li><a href="Recipes.aspx"><span class="glyphicon glyphicon-list" style="color: #666;"></span>
-						Recipes</a></li>
-					<li><a href="Add.aspx"><span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>
-						Add</a></li>
-					<li><a href="Search.aspx"><span class="glyphicon glyphicon-search" style="color: #444;"></span>
-						Search</a></li>
+					<li>
+						<asp:HyperLink runat="server" NavigateUrl="~/Recipes.aspx">
+						<span class="glyphicon glyphicon-list" style="color: #666;"></span>
+						Recipes
+						</asp:HyperLink>
+					</li>
+					<li>
+						<asp:HyperLink runat="server" NavigateUrl="~/Add.aspx">
+						<span class="glyphicon glyphicon-plus-sign" style="color: #1A1;"></span>
+						Add
+						</asp:HyperLink>
+					</li>
+					<li>
+						<asp:HyperLink runat="server" NavigateUrl="~/Search.aspx">
+						<span class="glyphicon glyphicon-search" style="color: #444;"></span>
+						Search
+						</asp:HyperLink>
+					</li>
 				</ul>
 
 				<div class="navbar-nav navbar-form navbar-right">
