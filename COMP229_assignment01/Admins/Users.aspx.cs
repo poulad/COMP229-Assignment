@@ -13,14 +13,10 @@ namespace COMP229_assignment01.Admins
 			var dataSource = new List<object>();
 			foreach (var u in Db.Context.aspnet_Users.Include("aspnet_Roles").Include("aspnet_Membership"))
 			{
-				var roles = "";
-				foreach (var r in u.aspnet_Roles)
-					roles += $"{r.RoleName}, ";
-				roles = roles.Substring(0, roles.Length - 2);
 				dataSource.Add(new
 				{
 					u.UserName,
-					RoleName = roles,
+					RoleName = string.Join(", ", Roles.GetRolesForUser(u.UserName)),
 					u.aspnet_Membership.Email,
 					u.LastActivityDate
 				});
@@ -52,6 +48,7 @@ namespace COMP229_assignment01.Admins
 			return dataSource;
 		}
 
+
 		protected void ButtonAssignRole_OnClick(object sender, EventArgs e)
 		{
 			if (Roles.RoleExists(TextBoxRole.Text))
@@ -66,7 +63,38 @@ namespace COMP229_assignment01.Admins
 				{
 					Roles.AddUserToRole(user.UserName, TextBoxRole.Text);
 					LabelRoleMessage.Text = "Role assigned";
+					RepeaterUsers.DataBind();
 					UsersDataSource.DataBind();
+				}
+				LabelRoleMessage.CssClass = "alert alert-info";
+			}
+			else
+			{
+				LabelRoleMessage.Text = "Role doesn't exists";
+				LabelRoleMessage.CssClass = "alert alert-warning";
+			}
+			LabelRoleMessage.Visible = true;
+		}
+
+
+		protected void ButtonRemoveRole_OnClick(object sender, EventArgs e)
+		{
+			if (Roles.RoleExists(TextBoxRole.Text))
+			{
+				var userId = Guid.Parse(DropDownUser.SelectedValue);
+				var user = Db.Context.aspnet_Users.First(u => u.UserId == userId);
+				if (Roles.IsUserInRole(user.UserName, TextBoxRole.Text))
+				{
+					Roles.RemoveUserFromRole(user.UserName, TextBoxRole.Text);
+					LabelRoleMessage.Text = $"User removed from \"{TextBoxRole.Text.ToLower()}\" role";
+					if (user.UserName == User.Identity.Name)
+						Response.Redirect(Request.RawUrl);
+					RepeaterUsers.DataBind();
+					UsersDataSource.DataBind();
+				}
+				else
+				{
+					LabelRoleMessage.Text = $"User is not in \"{TextBoxRole.Text.ToLower()}\" role";
 				}
 				LabelRoleMessage.CssClass = "alert alert-info";
 			}

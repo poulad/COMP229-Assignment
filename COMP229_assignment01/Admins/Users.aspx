@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="h1">User Management</div>
 		<div class="row">
-			<asp:Repeater runat="server" DataSourceID="UsersDataSource">
+			<asp:Repeater runat="server" ID="RepeaterUsers" DataSourceID="UsersDataSource">
 				<ItemTemplate>
 					<div class="col-xs-6 col-md-3">
 						<div class="thumbnail">
@@ -42,9 +42,10 @@
 						<div class="clearfix"></div>
 					</dd>
 					<dt></dt>
-					<dd>
+					<dd class="text-center">
 						<div class="clearfix"></div>
-						<asp:Button runat="server" ID="ButtonAssignRole" CssClass="btn btn-default pull-right" Text="Assign Role" OnClick="ButtonAssignRole_OnClick" />
+						<asp:Button runat="server" ID="ButtonRemoveRole" CssClass="btn btn-danger" Text="Remove Role" OnClick="ButtonRemoveRole_OnClick" />
+						<asp:Button runat="server" ID="ButtonAssignRole" CssClass="btn btn-success" Text="Assign Role" OnClick="ButtonAssignRole_OnClick" />
 					</dd>
 				</dl>
 			</div>

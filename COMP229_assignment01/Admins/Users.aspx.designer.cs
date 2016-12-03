@@ -13,6 +13,15 @@ namespace COMP229_assignment01.Admins {
     public partial class Users {
         
         /// <summary>
+        /// RepeaterUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterUsers;
+        
+        /// <summary>
         /// UsersDataSource control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace COMP229_assignment01.Admins {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxRole;
+        
+        /// <summary>
+        /// ButtonRemoveRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonRemoveRole;
         
         /// <summary>
         /// ButtonAssignRole control.
