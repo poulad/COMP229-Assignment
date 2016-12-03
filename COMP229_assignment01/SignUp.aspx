@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<asp:CreateUserWizard ID="CreateUserWizard1" runat="server" CreateUserButtonStyle-CssClass="btn btn-success" CreateUserButtonText="Register" AnswerLabelText="Security Answer" CompleteSuccessTextStyle-CssClass="alert alert-info" CssClass="RegistrationWizard" DisplaySideBar="False" ContinueDestinationPageUrl="Default.aspx" TitleTextStyle-CssClass="h3" ContinueButtonStyle-CssClass="btn btn-success" DuplicateUserNameErrorMessage="Please enter a different user name" DuplicateEmailErrorMessage="Email is already taken" ErrorMessageStyle-CssClass="alert alert-danger" FinishCompleteButtonStyle-CssClass="btn btn-success"  ValidatorTextStyle-CssClass="alert alert-danger">
+				<asp:CreateUserWizard ID="CreateUserWizard1" runat="server" CreateUserButtonStyle-CssClass="btn btn-success" CreateUserButtonText="Register" AnswerLabelText="Security Answer" CompleteSuccessTextStyle-CssClass="alert alert-info" CssClass="RegistrationWizard" DisplaySideBar="False" ContinueDestinationPageUrl="Default.aspx" TitleTextStyle-CssClass="h3" ContinueButtonStyle-CssClass="btn btn-success" DuplicateUserNameErrorMessage="Please enter a different user name" DuplicateEmailErrorMessage="Email is already taken" ErrorMessageStyle-CssClass="alert alert-danger" FinishCompleteButtonStyle-CssClass="btn btn-success"  ValidatorTextStyle-CssClass="alert alert-danger" RequireEmail="True">
 					<WizardSteps>
 						<asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server" Title="Register new account" >
 							<%--<ContentTemplate>

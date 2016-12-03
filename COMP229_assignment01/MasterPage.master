@@ -56,7 +56,7 @@
 				</div>
 				<ul id="navigationBar" class="nav navbar-nav">
 					<li>
-						<asp:HyperLink runat="server" NavigateUrl="Default.aspx">
+						<asp:HyperLink runat="server" NavigateUrl="~/Default.aspx">
 							<span class="glyphicon glyphicon-home"></span> Home
 						</asp:HyperLink>
 					</li>
@@ -79,12 +79,12 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li>
-											<asp:HyperLink runat="server" NavigateUrl="Add.aspx" Text="Add new recipe" /></li>
+											<asp:HyperLink runat="server" NavigateUrl="~/Add.aspx" Text="Add new recipe" /></li>
 										<li>
-											<asp:HyperLink runat="server" NavigateUrl="Search.aspx" Text="Find a recipe" /></li>
+											<asp:HyperLink runat="server" NavigateUrl="~/Search.aspx" Text="Find a recipe" /></li>
 										<li role="separator" class="divider"></li>
 										<li>
-											<asp:HyperLink runat="server" NavigateUrl="SignOut.aspx" Text="Logout" /></li>
+											<asp:HyperLink runat="server" NavigateUrl="~/SignOut.aspx" Text="Logout" /></li>
 									</ul>
 								</div>
 							</div>
