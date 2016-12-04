@@ -11,5 +11,32 @@ namespace COMP229_assignment01.Admins {
     
     
     public partial class Categories {
+        
+        /// <summary>
+        /// TextBoxNewCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewCategory;
+        
+        /// <summary>
+        /// ButtonCreateNewCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCreateNewCategory;
+        
+        /// <summary>
+        /// LabelCreateCategoryMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCreateCategoryMessage;
     }
 }
