@@ -91,6 +91,9 @@
 									</button>
 									<ul class="dropdown-menu">
 										<li>
+											<asp:HyperLink runat="server" NavigateUrl="~/ViewRecipes.aspx" Text="View My Recipes" /></li>
+										<li>
+										<li>
 											<asp:HyperLink runat="server" NavigateUrl="~/Add.aspx" Text="Add new recipe" /></li>
 										<li>
 											<asp:HyperLink runat="server" NavigateUrl="~/Search.aspx" Text="Find a recipe" /></li>
@@ -120,6 +123,9 @@
 												<span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu">
+												<li>
+													<asp:HyperLink runat="server" NavigateUrl="~/ViewRecipes.aspx" Text="View My Recipes" /></li>
+												<li>
 												<li>
 													<asp:HyperLink runat="server" NavigateUrl="~/Add.aspx" Text="Add new recipe" /></li>
 												<li>

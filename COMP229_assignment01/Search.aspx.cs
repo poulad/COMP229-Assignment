@@ -47,7 +47,7 @@ namespace COMP229_assignment01
 					r.CookingTime,
 					Cuisine = r.Cuisine.Name,
 					r.Description,
-					r.IsPrivate,
+					IsPrivate = r.IsPrivate ? "Private" : "Public",
 				};
 
 			GridViewResults.DataSource = searchResults.ToList();

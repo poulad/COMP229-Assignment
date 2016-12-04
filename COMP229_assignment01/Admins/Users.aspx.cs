@@ -105,5 +105,38 @@ namespace COMP229_assignment01.Admins
 			}
 			LabelRoleMessage.Visible = true;
 		}
+
+
+		protected void ButtonCreateUser_OnClick(object sender, EventArgs e)
+		{
+			MembershipCreateStatus status;
+			var user = Membership.CreateUser(TextBoxNewUserName.Text, TextBoxNewPassword.Text, TextBoxNewEmail.Text, TextBoxNewSecurityQuestion.Text, TextBoxNewSecurityAnswer.Text, true, out status);
+
+			if (status == MembershipCreateStatus.Success && user != null)
+			{
+				Roles.AddUserToRole(user.UserName, "Users");
+				LabelNewUserMessage.CssClass = "alert alert-success";
+			}
+			else
+				LabelNewUserMessage.CssClass = "alert alert-danger";
+
+			switch (status)
+			{
+				case MembershipCreateStatus.Success:
+					LabelNewUserMessage.Text = "User successfully created";
+					DropDownUser.DataBind();
+					RepeaterUsers.DataBind();
+					break;
+				case MembershipCreateStatus.DuplicateUserName:
+					LabelNewUserMessage.Text = "User name already taken";
+					break;
+				case MembershipCreateStatus.InvalidPassword:
+					LabelNewUserMessage.Text = "Password is not valid";
+					break;
+				default:
+					LabelNewUserMessage.Text = $"Failed to create the user. {status}";
+					break;
+			}
+		}
 	}
 }

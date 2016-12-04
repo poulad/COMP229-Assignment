@@ -31,6 +31,69 @@ namespace COMP229_assignment01.Admins {
         protected global::System.Web.UI.WebControls.ObjectDataSource UsersDataSource;
         
         /// <summary>
+        /// TextBoxNewUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewUserName;
+        
+        /// <summary>
+        /// TextBoxNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewPassword;
+        
+        /// <summary>
+        /// TextBoxNewEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewEmail;
+        
+        /// <summary>
+        /// TextBoxNewSecurityQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewSecurityQuestion;
+        
+        /// <summary>
+        /// TextBoxNewSecurityAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewSecurityAnswer;
+        
+        /// <summary>
+        /// ButtonCreateUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        
+        /// <summary>
+        /// LabelNewUserMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNewUserMessage;
+        
+        /// <summary>
         /// DropDownUser control.
         /// </summary>
         /// <remarks>

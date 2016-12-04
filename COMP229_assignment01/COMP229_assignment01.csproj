@@ -140,6 +140,7 @@
     <Content Include="SignOut.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Search.aspx" />
+    <Content Include="ViewRecipes.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -270,6 +271,13 @@
     </Compile>
     <Compile Include="Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRecipes.aspx.cs">
+      <DependentUpon>ViewRecipes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewRecipes.aspx.designer.cs">
+      <DependentUpon>ViewRecipes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
