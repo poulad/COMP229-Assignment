@@ -99,6 +99,31 @@
 				<asp:RequiredFieldValidator runat="server" ID="RequiredTextBoxRole" ControlToValidate="TextBoxRole" CssClass="alert alert-warning" Display="Dynamic" ErrorMessage="Write the Role in the box" ValidationGroup="roles" />
 			</div>
 		</div>
+		
+		<div class="h1">Create new role</div>
+		<div class="row">
+			<div class="col-md-5">
+				<dl class="dl-horizontal">
+					<dt class="h4">Role name</dt>
+					<dd>
+						<asp:TextBox runat="server" ID="TextBoxNewRoleName" CssClass="form-control" MaxLength="256" />
+						<asp:RequiredFieldValidator runat="server" Display="None" ValidationGroup="createrole" ControlToValidate="TextBoxNewRoleName" ErrorMessage="Role name is required" />
+					</dd>
+					<dt></dt>
+					<dd>
+						<div class="clearfix"></div>
+						<asp:Button runat="server" ID="ButtonCreateNewRole" CssClass="btn btn-primary pull-right" Text="Create Role" ValidationGroup="createrole" OnClick="ButtonCreateNewRole_OnClick" />
+						<div class="clearfix"></div>
+					</dd>
+				</dl>
+			</div>
+
+			<div class="col-md-5">
+				<asp:Label runat="server" ID="LabelCreateRoleMessage" />
+				<div class="clearfix"></div>
+				<asp:ValidationSummary runat="server" ValidationGroup="createrole" CssClass="alert alert-danger" DisplayMode="List" />
+			</div>
+		</div>
 
 	</div>
 

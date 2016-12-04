@@ -138,5 +138,22 @@ namespace COMP229_assignment01.Admins
 					break;
 			}
 		}
+
+
+		protected void ButtonCreateNewRole_OnClick(object sender, EventArgs e)
+		{
+			if (Roles.RoleExists(TextBoxRole.Text))
+			{
+				LabelCreateRoleMessage.Text = "Role already exists";
+				LabelCreateRoleMessage.CssClass = "alert alert-danger";
+				return;
+			}
+
+			Roles.CreateRole(TextBoxNewRoleName.Text);
+			LabelCreateRoleMessage.Text = $"Role \"{TextBoxNewRoleName.Text}\" created";
+			LabelCreateRoleMessage.CssClass = "alert alert-danger";
+
+
+		}
 	}
 }
