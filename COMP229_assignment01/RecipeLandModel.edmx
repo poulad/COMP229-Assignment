@@ -148,7 +148,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Recipes">
           <Key>
@@ -164,7 +164,7 @@
           <Property Name="IsPrivate" Type="bit" Nullable="false" />
           <Property Name="Description" Type="ntext" Nullable="false" />
         </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__531856C7">
+        <Association Name="FK__aspnet_Me__Appli__21B6055D">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Me__UserI__540C7B00">
+        <Association Name="FK__aspnet_Me__UserI__22AA2996">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -188,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pa__Appli__04AFB25B">
+        <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,7 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__PathI__0A688BB1">
+        <Association Name="FK__aspnet_Pe__PathI__628FA481">
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
           <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -212,7 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__PathI__0E391C95">
+        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
           <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
           <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -224,7 +224,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pe__UserI__0F2D40CE">
+        <Association Name="FK__aspnet_Pe__UserI__693CA210">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
           <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
@@ -236,7 +236,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pr__UserI__681373AD">
+        <Association Name="FK__aspnet_Pr__UserI__38996AB5">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -248,7 +248,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Ro__Appli__719CDDE7">
+        <Association Name="FK__aspnet_Ro__Appli__440B1D61">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -260,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__Appli__42E1EEFE">
+        <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -272,7 +272,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__RoleI__76619304">
+        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -284,7 +284,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Us__UserI__756D6ECB">
+        <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -296,7 +296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Categor__5B78929E">
+        <Association Name="FK__Recipes__Categor__0E6E26BF">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -308,7 +308,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__Cuisine__5C6CB6D7">
+        <Association Name="FK__Recipes__Cuisine__0F624AF8">
           <End Role="Cuisines" Type="Self.Cuisines" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -320,7 +320,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Recipes__User_Id__5A846E65">
+        <Association Name="FK__Recipes__User_Id__0D7A0286">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -347,59 +347,59 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cuisines" EntityType="Self.Cuisines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__531856C7" Association="Self.FK__aspnet_Me__Appli__531856C7">
+          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="Self.FK__aspnet_Me__Appli__21B6055D">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__540C7B00" Association="Self.FK__aspnet_Me__UserI__540C7B00">
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="Self.FK__aspnet_Me__UserI__22AA2996">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__04AFB25B" Association="Self.FK__aspnet_Pa__Appli__04AFB25B">
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="Self.FK__aspnet_Pa__Appli__5AEE82B9">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__0A688BB1" Association="Self.FK__aspnet_Pe__PathI__0A688BB1">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="Self.FK__aspnet_Pe__PathI__628FA481">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__0E391C95" Association="Self.FK__aspnet_Pe__PathI__0E391C95">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="Self.FK__aspnet_Pe__PathI__68487DD7">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__0F2D40CE" Association="Self.FK__aspnet_Pe__UserI__0F2D40CE">
+          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="Self.FK__aspnet_Pe__UserI__693CA210">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__681373AD" Association="Self.FK__aspnet_Pr__UserI__681373AD">
+          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="Self.FK__aspnet_Pr__UserI__38996AB5">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__719CDDE7" Association="Self.FK__aspnet_Ro__Appli__719CDDE7">
+          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="Self.FK__aspnet_Ro__Appli__440B1D61">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__42E1EEFE" Association="Self.FK__aspnet_Us__Appli__42E1EEFE">
+          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="Self.FK__aspnet_Us__Appli__0DAF0CB0">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__RoleI__76619304" Association="Self.FK__aspnet_Us__RoleI__76619304">
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="Self.FK__aspnet_Us__RoleI__4AB81AF0">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__UserI__756D6ECB" Association="Self.FK__aspnet_Us__UserI__756D6ECB">
+          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="Self.FK__aspnet_Us__UserI__49C3F6B7">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Categor__5B78929E" Association="Self.FK__Recipes__Categor__5B78929E">
+          <AssociationSet Name="FK__Recipes__Categor__0E6E26BF" Association="Self.FK__Recipes__Categor__0E6E26BF">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__Cuisine__5C6CB6D7" Association="Self.FK__Recipes__Cuisine__5C6CB6D7">
+          <AssociationSet Name="FK__Recipes__Cuisine__0F624AF8" Association="Self.FK__Recipes__Cuisine__0F624AF8">
             <End Role="Cuisines" EntitySet="Cuisines" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Recipes__User_Id__5A846E65" Association="Self.FK__Recipes__User_Id__5A846E65">
+          <AssociationSet Name="FK__Recipes__User_Id__0D7A0286" Association="Self.FK__Recipes__User_Id__0D7A0286">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
@@ -641,7 +641,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Recipes" Relationship="RecipeLandModel.FK__Recipes__Cuisine__5C6CB6D7" FromRole="Cuisine" ToRole="Recipe" />
         </EntityType>
         <EntityType Name="Recipe">
